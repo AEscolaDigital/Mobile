@@ -13,6 +13,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        // Remover a AppBar
+        supportActionBar!!.hide()
+
         textViewCreateNewUser = findViewById(R.id.text_view_create_new_user)
 
         textViewCreateNewUser.setOnClickListener {
@@ -21,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun openCreateNewUser() {
-        val intent = Intent(this, newUserActivity::class.java)
+        val intent = Intent(this, SchoolRegistrationActivity::class.java)
         startActivity(intent)
         finish()
     }
