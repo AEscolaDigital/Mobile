@@ -1,4 +1,4 @@
-package com.example.school.Api
+package com.example.school.api
 import com.google.gson.annotations.SerializedName
 
 data class Cep(
