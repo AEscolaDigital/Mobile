@@ -2,16 +2,16 @@ package com.example.school
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputLayout
 
 class SchoolRegistrationActivity : AppCompatActivity() {
 
+    lateinit var textInputLayoutCep: TextInputLayout
     lateinit var editTextCep: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,14 +21,17 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         supportActionBar!!.title = "Cadastro de escola"
         supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_background))
 
+         textInputLayoutCep = findViewById(R.id.text_input_layout_cep)
+        // val editTextCep = textInputLayoutCep.editText!!.text
+
         editTextCep = findViewById(R.id.edit_text_cep)
-        Toast.makeText(this, "AAAAAAAAAAAAAAAAA", Toast.LENGTH_SHORT).show()
 
-
-        if (editTextCep.length() == 8){
-            Toast.makeText(this, "AAAAAAAAAAAAAAAAFFFFFFFFFA", Toast.LENGTH_SHORT).show()
-
+        editTextCep.setOnFocusChangeListener { v, hasFocus ->
+            if (!hasFocus){
+                openLoginActivity()
+            }
         }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -38,14 +41,29 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         return true
     }
 
+    private fun save(){
+        textInputLayoutCep = findViewById(R.id.text_input_layout_cep)
+        val text = textInputLayoutCep.editText!!.text
+
+      Toast.makeText(this, "${text.toString().length}", Toast.LENGTH_SHORT).show()
+
+    }
+
+    private fun openLoginActivity() {
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         when(item.itemId){
-            R.id.menu_save ->{
+            R.id.menu_save -> {
+                save()
                 return true
             }
-            R.id.menu_cancel ->{
-                Toast.makeText(this, "Cancel", Toast.LENGTH_LONG)
+            R.id.menu_cancel -> {
+                openLoginActivity()
                 return true
             }
 
