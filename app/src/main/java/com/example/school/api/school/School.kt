@@ -1,22 +1,15 @@
 package com.example.school.api.school
 
-import com.google.gson.Gson
+import com.google.gson.JsonObject
+import com.google.gson.annotations.SerializedName
 
 data class School(
-    var name :String,
-    var phone : String,
-    var name_school : String,
-    var cnpj :String,
-    var school_size : String,
-    var address : Gson,
-    var cep : String,
-    var street: String,
-    var district: String,
-    var number: String,
-    var complement: String,
-    var city: String,
-    var state: String,
-    var uf_sate: String,
+    var name:String,
+    var phone: String,
+    var name_school: String,
+    var cnpj:String,
+    var school_size: String,
+    var adress: String,
     var email: String,
     var password:String
     /*{

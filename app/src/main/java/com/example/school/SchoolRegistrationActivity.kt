@@ -10,14 +10,18 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.school.api.cep.RetrofitFactory
 import com.example.school.api.cep.Cep
+import com.example.school.api.school.Adress
+import com.example.school.api.school.ApiSchool
+import com.example.school.api.school.School
 import com.example.school.utlis.MaskFormatUtil
 import com.google.android.material.textfield.TextInputLayout
+import com.google.gson.Gson
+import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class SchoolRegistrationActivity : AppCompatActivity() {
-
     lateinit var textInputLayoutCep: TextInputLayout
     lateinit var textInputLayoutStreet: TextInputLayout
     lateinit var textInputLayoutPhone: TextInputLayout
@@ -63,6 +67,7 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         edit_name = findViewById(R.id.text_input_edit_text_name)
         editTextPhone = findViewById(R.id.text_input_edit_text_phone)
         editTextCnpj = findViewById(R.id.text_input_edit_cnpj)
+        editTextCompanyName = findViewById(R.id.text_input_edit_text_company_name)
         editTextCep = findViewById(R.id.text_input_edit_cep)
         editTextStreet = findViewById(R.id.text_input_edit_street)
         editTextDistrict = findViewById(R.id.text_input_edit_district)
@@ -138,7 +143,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             override fun onFailure(call: Call<Cep>, t: Throwable) {
                 Log.i("cep", t.message.toString())
             }
-
         })
     }
 
@@ -186,6 +190,44 @@ class SchoolRegistrationActivity : AppCompatActivity() {
     private fun save() {
         if (validaForm()){
             Toast.makeText(this, "Verifique se todos os campos estão preenchidos corretamente!", Toast.LENGTH_LONG).show()
+        }else{
+            val name = edit_name.text.toString()
+            val phone = editTextPhone.text.toString()
+            val cnpj = editTextCnpj.text.toString()
+            val cep = editTextCep.text.toString()
+            val street = editTextStreet.text.toString()
+            val district = editTextDistrict.text.toString()
+            val adressNumber = editTextAdressNuber.text.toString()
+            val city = editTextCity.text.toString()
+            val uf = editTextUf.text.toString()
+            val complement = editTextComplement.text.toString()
+            val email = editTextEmail.text.toString()
+            val password = editTextPassword.text.toString()
+            val companyName = editTextCompanyName.text.toString()
+            
+
+
+            val adress:Adress = Adress(cep, street, district, adressNumber, complement, city, "state", uf)
+            val adressJson = Gson().toJson(adress)
+            val school:School = School(name,phone, companyName, cnpj, "15", adressJson,email, password)
+
+            val schoollJson = Gson().toJson(school)
+            val remote = ApiSchool.SchoolEndPoint().getService()
+
+            val call: Call<JsonObject> = remote.register(schoollJson)
+
+
+            call.enqueue(object : Callback<JsonObject> {
+                override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+                    Toast.makeText(applicationContext, "Escola cadastrada com sucesso!", Toast.LENGTH_LONG).show()
+                    Log.i("XPTO", "Funcionou ou não?")
+                    finish()
+                }
+
+                override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                    Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
+                }
+            })
         }
     }
 
