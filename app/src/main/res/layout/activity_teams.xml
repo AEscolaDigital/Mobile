@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/ed_pesquisar"
         android:layout_width="300dp"
         android:layout_height="35dp"
         android:layout_margin="20dp"
@@ -28,10 +28,10 @@
         android:layout_height="wrap_content"
 
         app:cardCornerRadius="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintBottom_toBottomOf="@+id/ed_pesquisar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText">
+        app:layout_constraintStart_toEndOf="@+id/ed_pesquisar"
+        app:layout_constraintTop_toTopOf="@+id/ed_pesquisar">
 
 
         <ImageView
@@ -42,7 +42,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_suasTurmas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
@@ -51,36 +51,56 @@
 
         android:textColor="@color/textColor"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
+
 
     <Button
+        android:id="@+id/btn_criar_disciplina"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
+
         android:layout_marginEnd="20dp"
+        android:background="@drawable/btn_criar_disciplina"
+        android:gravity="center"
+
         android:text="Criar Disciplina"
-        android:gravity="center_vertical"
         android:textColor="@color/textColor"
-        android:backgroundTint="#fff"
-        android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-
-
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_suasTurmas"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView6" />
+        app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"
+
+        />
 
 
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:id="@+id/rv_teams"-->
 <!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
+<!--        android:layout_height="wrap_content"-->
 <!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginTop="32dp"-->
 <!--        android:layout_marginEnd="16dp"-->
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="1.0"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/editText"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
 <!--        tools:listitem="@layout/recycler_view_teams" />-->
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navegation_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/menu_navegation_bottom"
+        android:background="@drawable/navegation_bottom_gradient">
+
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
