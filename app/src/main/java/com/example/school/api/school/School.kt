@@ -9,7 +9,7 @@ data class School(
     var name_school: String,
     var cnpj:String,
     var school_size: String,
-    var adress: String,
+    var address: Adress,
     var email: String,
     var password:String
     /*{

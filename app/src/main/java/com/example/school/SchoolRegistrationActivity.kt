@@ -36,6 +36,7 @@ class SchoolRegistrationActivity : AppCompatActivity() {
     lateinit var editTextPhone: EditText
     lateinit var editTextCompanyName: EditText
     lateinit var editTextCnpj: EditText
+    lateinit var editTextSchoolSize: EditText
     lateinit var editTextCep: EditText
     lateinit var editTextStreet: EditText
     lateinit var editTextDistrict: EditText
@@ -67,6 +68,7 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         edit_name = findViewById(R.id.text_input_edit_text_name)
         editTextPhone = findViewById(R.id.text_input_edit_text_phone)
         editTextCnpj = findViewById(R.id.text_input_edit_cnpj)
+        editTextSchoolSize = findViewById(R.id.text_input_edit_shool_size)
         editTextCompanyName = findViewById(R.id.text_input_edit_text_company_name)
         editTextCep = findViewById(R.id.text_input_edit_cep)
         editTextStreet = findViewById(R.id.text_input_edit_street)
@@ -194,6 +196,7 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             val name = edit_name.text.toString()
             val phone = editTextPhone.text.toString()
             val cnpj = editTextCnpj.text.toString()
+            val school_size = editTextSchoolSize.text.toString()
             val cep = editTextCep.text.toString()
             val street = editTextStreet.text.toString()
             val district = editTextDistrict.text.toString()
@@ -205,27 +208,27 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             val password = editTextPassword.text.toString()
             val companyName = editTextCompanyName.text.toString()
             
-
+            Log.i("BOSTA", school_size)
 
             val adress:Adress = Adress(cep, street, district, adressNumber, complement, city, "state", uf)
-            val adressJson = Gson().toJson(adress)
-            val school:School = School(name,phone, companyName, cnpj, "15", adressJson,email, password)
+            val school:School = School(name,phone, companyName, cnpj, school_size, adress,email, password)
 
-            val schoollJson = Gson().toJson(school)
             val remote = ApiSchool.SchoolEndPoint().getService()
 
-            val call: Call<JsonObject> = remote.register(schoollJson)
+            val call: Call<School> = remote.register(school)
 
 
-            call.enqueue(object : Callback<JsonObject> {
-                override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+            call.enqueue(object : Callback<School> {
+                override fun onResponse(call: Call<School>, response: Response<School>) {
                     Toast.makeText(applicationContext, "Escola cadastrada com sucesso!", Toast.LENGTH_LONG).show()
-                    Log.i("XPTO", "Funcionou ou não?")
-                    finish()
+                    Log.i("XPTO", "Escola cadastrada com sucesso")
+                    Log.i("XPTO", response.message().toString())
                 }
 
-                override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                override fun onFailure(call: Call<School>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
+                    Log.i("XPTO", error.message.toString())
+                    Log.i("XPTO", "Erro ao cadastrar escola")
                 }
             })
         }
