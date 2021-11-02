@@ -207,8 +207,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             val email = editTextEmail.text.toString()
             val password = editTextPassword.text.toString()
             val companyName = editTextCompanyName.text.toString()
-            
-            Log.i("BOSTA", school_size)
 
             val adress:Adress = Adress(cep, street, district, adressNumber, complement, city, "state", uf)
             val school:School = School(name,phone, companyName, cnpj, school_size, adress,email, password)
