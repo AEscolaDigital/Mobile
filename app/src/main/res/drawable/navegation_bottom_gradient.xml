@@ -8,8 +8,6 @@
         android:endColor="#7B83EB"
         android:angle="180"/>
 
-    <stroke
-        android:color="@android:color/white"
-        android:width="2dp"/>
+
 
 </shape>

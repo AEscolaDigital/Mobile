@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/addMembros"
+        android:icon="@drawable/ic_baseline_group_24"
+        android:title="Membros"
+        />
+
+    <item
+        android:id="@+id/tarefas"
+        android:icon="@drawable/ic_baseline_bag_24"
+        android:title="Tarefas"
+        />
+
     <item
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"/>
-
-    <item
-        android:id="@+id/group"
-        android:icon="@drawable/ic_baseline_group_24"
-        android:title="grupo"
-        />
-
-    <item
-        android:id="@+id/group2"
-        android:icon="@drawable/ic_baseline_group_24"
-        android:title="grupo"
-        />
 
     <item
         android:id="@+id/group3"
@@ -24,9 +26,9 @@
         />
 
     <item
-        android:id="@+id/group4"
+        android:id="@+id/presenca"
         android:icon="@drawable/ic_baseline_library_books_24"
-        android:title="grupo"
+        android:title="Presença"
         />
 
 

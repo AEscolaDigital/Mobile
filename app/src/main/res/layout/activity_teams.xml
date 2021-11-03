@@ -9,13 +9,12 @@
 
     <EditText
         android:id="@+id/ed_pesquisar"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="35dp"
         android:layout_margin="20dp"
         android:paddingStart="20dp"
-        android:paddingEnd="140dp"
         android:drawableStart="@drawable/search_24"
-        android:drawablePadding="20dp"
+        android:drawablePadding="10dp"
         android:background="@drawable/input_search"
         android:hint="Pesquisar"
         android:inputType="text"
@@ -37,6 +36,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:paddingStart="20dp"
             android:scaleType="centerCrop"
             android:src="@drawable/perfil" />
     </androidx.cardview.widget.CardView>
@@ -56,9 +56,8 @@
 
     <Button
         android:id="@+id/btn_criar_disciplina"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="30dp"
-
         android:layout_marginEnd="20dp"
         android:background="@drawable/btn_criar_disciplina"
         android:gravity="center"
@@ -66,7 +65,7 @@
         android:text="Criar Disciplina"
         android:textColor="@color/textColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="8dp"
+        android:textSize="12dp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_suasTurmas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"
@@ -74,20 +73,19 @@
         />
 
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rv_teams"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="16dp"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:layout_marginEnd="16dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="1.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina"-->
-<!--        app:layout_constraintVertical_bias="0.0"-->
-<!--        tools:listitem="@layout/recycler_view_teams" />-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_teams"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            android:layout_marginEnd="16dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/navegation_bottom"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina"-->
+<!--            app:layout_constraintVertical_bias="0.0"-->
+<!--            tools:listitem="@layout/recycler_view_teams" />-->
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -98,7 +96,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/menu_navegation_bottom"
-        android:background="@drawable/navegation_bottom_gradient">
+        android:background="@drawable/navegation_bottom_gradient"
+        app:itemIconTint="@color/white"
+
+        app:itemTextColor="@color/white">
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/navegation_bottom" />
 
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
