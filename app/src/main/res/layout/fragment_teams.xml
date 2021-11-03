@@ -1,14 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.TeamsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#EDEDED"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:context=".MainActivity">
 
+        <EditText
+            android:id="@+id/ed_pesquisar"
+            android:layout_width="250dp"
+            android:layout_height="35dp"
+            android:layout_margin="20dp"
+            android:paddingStart="20dp"
+            android:drawableStart="@drawable/search_24"
+            android:drawablePadding="10dp"
+            android:background="@drawable/input_search"
+            android:hint="Pesquisar"
+            android:inputType="text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:cardCornerRadius="25dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ed_pesquisar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ed_pesquisar"
+            app:layout_constraintTop_toTopOf="@+id/ed_pesquisar">
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:paddingStart="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/perfil" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_suasTurmas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="50dp"
+            android:text="Suas Turmas"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+
+            android:textColor="@color/textColor"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
+
+
+        <Button
+            android:id="@+id/btn_criar_disciplina"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/btn_criar_disciplina"
+            android:gravity="center"
+
+            android:text="Criar Disciplina"
+            android:textColor="@color/textColor"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_suasTurmas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"
+
+            />
+
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="500dp"-->
+<!--            android:fillViewport="true"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina">-->
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/rv_teams"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="500dp"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="32dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina"-->
+<!--                app:layout_constraintVertical_bias="0.0"-->
+<!--                tools:listitem="@layout/recycler_view_teams" />-->
+
+<!--        </ScrollView>-->
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
