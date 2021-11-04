@@ -6,102 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".fragments.TeamsFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="#EDEDED"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
-        <EditText
-            android:id="@+id/ed_pesquisar"
-            android:layout_width="250dp"
-            android:layout_height="35dp"
-            android:layout_margin="20dp"
-            android:paddingStart="20dp"
-            android:drawableStart="@drawable/search_24"
-            android:drawablePadding="10dp"
-            android:background="@drawable/input_search"
-            android:hint="Pesquisar"
-            android:inputType="text"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            app:cardCornerRadius="25dp"
-            app:layout_constraintBottom_toBottomOf="@+id/ed_pesquisar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ed_pesquisar"
-            app:layout_constraintTop_toTopOf="@+id/ed_pesquisar">
-
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:paddingStart="20dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/perfil" />
-        </androidx.cardview.widget.CardView>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
 
         <TextView
             android:id="@+id/tv_suasTurmas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="50dp"
-            android:text="Suas Turmas"
+            android:layout_margin="40dp"
+            android:textSize="24dp"
+            android:text="Suas turmas"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-
             android:textColor="@color/textColor"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
-
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_criar_disciplina"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="30dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/btn_criar_disciplina"
-            android:gravity="center"
-
             android:text="Criar Disciplina"
-            android:textColor="@color/textColor"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/textColor"
             android:textSize="12dp"
+            android:background="@drawable/btn_criar_disciplina"
+            android:drawableStart="@drawable/ic_baseline_group_add_24"
+            android:drawableTint="@color/iconColor"
+            android:paddingStart="5dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginStart="90dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_suasTurmas"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"
+            app:layout_constraintStart_toEndOf="@+id/tv_suasTurmas"
+            app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"/>
 
-            />
-
-<!--        <ScrollView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="500dp"-->
-<!--            android:fillViewport="true"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina">-->
-
-<!--            <androidx.recyclerview.widget.RecyclerView-->
-<!--                android:id="@+id/rv_teams"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="500dp"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="32dp"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina"-->
-<!--                app:layout_constraintVertical_bias="0.0"-->
-<!--                tools:listitem="@layout/recycler_view_teams" />-->
-
-<!--        </ScrollView>-->
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_teams"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina"
+            tools:listitem="@layout/recycler_view_teams" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 </FrameLayout>
