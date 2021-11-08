@@ -20,10 +20,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.SchoolRegistrationActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
-        <activity android:name=".SchoolRegistrationActivity" />
     </application>
 
 </manifest>

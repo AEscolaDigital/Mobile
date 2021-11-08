@@ -118,7 +118,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     private fun openDashboard() {
-        val registerScreen = Intent(this, MainActivity::class.java)
+        val registerScreen = Intent(this, SchoolRegistrationActivity::class.java)
         startActivity(registerScreen)
     }
 
