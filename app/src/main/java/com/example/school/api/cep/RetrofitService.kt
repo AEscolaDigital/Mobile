@@ -1,6 +1,6 @@
-package com.example.retrofitviacep
+package com.example.school.api.cep
 
-import com.example.school.api.Cep
+import com.example.school.models.Cep
 import retrofit2.Call
 import retrofit2.http.*
 

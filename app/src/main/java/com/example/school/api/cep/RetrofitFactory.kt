@@ -1,8 +1,7 @@
-package com.example.retrofitviacep
+package com.example.school.api.cep
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class RetrofitFactory {
     val URL = "https://viacep.com.br/ws/"
@@ -13,7 +12,7 @@ class RetrofitFactory {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-    fun retrofitService() : RetrofitService{
+    fun retrofitService() : RetrofitService {
         return retrofitFactory.create(RetrofitService::class.java)
     }
 }
