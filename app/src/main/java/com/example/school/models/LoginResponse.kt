@@ -1,4 +1,6 @@
 package com.example.school.models
 
-class LoginResponse {
-}
+data class LoginResponse (
+    val user: UserLogiResponse,
+    val token:String
+)
