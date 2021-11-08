@@ -1,6 +1,6 @@
 package com.example.school.models
 
-data class UserLogiResponse(
-    val email:String,
-    val name : String
-)
+class UserLogiResponse {
+    var email: String = ""
+    var name: String = ""
+}

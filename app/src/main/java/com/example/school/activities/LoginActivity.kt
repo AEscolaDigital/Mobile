@@ -56,11 +56,13 @@ class LoginActivity : AppCompatActivity() {
 
     private fun login (){
         if(validate()){
-            val role = "ROLE_ADMIN"
-            val email = edit_email.text.toString()
-            val password = edit_password.text.toString()
 
-            val login = Login(role, email, password)
+            //val login = Login(role, email, password)
+            var login = Login()
+            login.role = "ROLE_ADMIN"
+            login.email = edit_email.text.toString()
+            login.password = edit_password.text.toString()
+
 
             val remote = ApiSchool.SchoolEndPoint().sessionsService()
 
