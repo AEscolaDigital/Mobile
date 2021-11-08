@@ -1,7 +1,7 @@
-package com.example.school
+package com.example.school.models
 
 data class Login (
     val role : String,
     val email : String,
-    val passowrd: String,
+    val password: String,
 )

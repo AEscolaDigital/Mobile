@@ -1,16 +1,16 @@
-package com.example.school
+package com.example.school.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Layout
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.school.R
 import com.example.school.api.school.ApiSchool
-import com.example.school.api.school.School
+import com.example.school.models.Login
 import com.google.android.material.textfield.TextInputLayout
 import retrofit2.Call
 import retrofit2.Callback
@@ -62,23 +62,33 @@ class LoginActivity : AppCompatActivity() {
 
             val login = Login(role, email, password)
 
-            val remote = ApiSchool.SchoolEndPoint().loginService()
+            val remote = ApiSchool.SchoolEndPoint().sessionsService()
 
             val call: Call<Login> = remote.login(login)
 //samuel.a.goulart@gmail.com
 // 123456
-
             call.enqueue(object : Callback<Login> {
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
-                    Toast.makeText(applicationContext, "Login concluido", Toast.LENGTH_LONG).show()
-                    Log.i("XPTO", "Sucesso ao fazer login")
-                    Log.i("XPTO", response.message().toString())
+
+                    val user = response
+                    if(user.code() == 403){
+                        return Toast.makeText(applicationContext, "USUÁRIO OU SENHA INCORRETOS", Toast.LENGTH_LONG).show()
+                    }else{
+                        Toast.makeText(applicationContext, "Login concluido", Toast.LENGTH_LONG).show()
+                        Log.i("XPTO", "Sucesso ao fazer login")
+                        openDashboard()
+
+                        Log.d("CODE", user.code().toString())
+                        Log.d("XPTO", user.body().toString())
+                        Log.d("MENSAGEM", user.message())
+                    }
+
                 }
 
                 override fun onFailure(call: Call<Login>, error: Throwable) {
-                    Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Erro ao fazer login!", Toast.LENGTH_LONG).show()
                     Log.i("XPTO", error.message.toString())
-                    Log.i("XPTO", "Erro ao fazer login")
+                    /*Log.i("XPTO", "Erro ao fazer login")*/
                 }
             })
 
@@ -107,4 +117,9 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, SchoolRegistrationActivity::class.java)
         startActivity(intent)
     }
+    private fun openDashboard() {
+        val registerScreen = Intent(this, MainActivity::class.java)
+        startActivity(registerScreen)
+    }
+
 }

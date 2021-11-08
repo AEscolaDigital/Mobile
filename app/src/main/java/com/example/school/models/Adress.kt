@@ -1,4 +1,4 @@
-package com.example.school.api.school
+package com.example.school.models
 
 import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName

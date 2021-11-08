@@ -1,7 +1,6 @@
-package com.example.school.api.school
+package com.example.school.models
 
-import com.google.gson.JsonObject
-import com.google.gson.annotations.SerializedName
+import com.example.school.models.Adress
 
 data class School(
     var name:String,

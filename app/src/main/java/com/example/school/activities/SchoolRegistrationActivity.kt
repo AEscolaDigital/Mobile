@@ -1,4 +1,4 @@
-package com.example.school
+package com.example.school.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,15 +8,14 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.school.R
 import com.example.school.api.cep.RetrofitFactory
-import com.example.school.api.cep.Cep
-import com.example.school.api.school.Adress
+import com.example.school.models.Cep
+import com.example.school.models.Adress
 import com.example.school.api.school.ApiSchool
-import com.example.school.api.school.School
+import com.example.school.models.School
 import com.example.school.utlis.MaskFormatUtil
 import com.google.android.material.textfield.TextInputLayout
-import com.google.gson.Gson
-import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -208,8 +207,8 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             val password = editTextPassword.text.toString()
             val companyName = editTextCompanyName.text.toString()
 
-            val adress:Adress = Adress(cep, street, district, adressNumber, complement, city, "state", uf)
-            val school:School = School(name,phone, companyName, cnpj, school_size, adress,email, password)
+            val adress: Adress = Adress(cep, street, district, adressNumber, complement, city, "state", uf)
+            val school: School = School(name,phone, companyName, cnpj, school_size, adress,email, password)
 
             val remote = ApiSchool.SchoolEndPoint().getService()
 
@@ -235,7 +234,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
     private fun openLoginActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
-        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
