@@ -44,9 +44,9 @@
             app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_teams"
+            android:id="@+id/idrecyclerTeams"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="530dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
@@ -57,8 +57,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
 
 </FrameLayout>

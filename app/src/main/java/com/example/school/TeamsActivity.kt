@@ -6,13 +6,16 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.school.adapter.DashboardAdapter
 import com.example.school.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class TeamsActivity : AppCompatActivity() {
 
-    lateinit var bottom_navigation : BottomNavigationView
-    lateinit var reciclerTurmas : RecyclerView
+    lateinit var bottom_navigation: BottomNavigationView
+    lateinit var recyclerViewTurmas: RecyclerView
+
+    lateinit var dashBoardAdapter: DashboardAdapter
 
     private val teamsFragment = TeamsFragment()
     private val taskFragment = TaskFragment()
@@ -29,12 +32,11 @@ class TeamsActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
 
-    bottom_navigation = findViewById(R.id.navegation_bottom)
+        bottom_navigation = findViewById(R.id.navegation_bottom)
 
         // Fazendo a troca de tela ao clicar em um icone no bottom_navigation
-
         bottom_navigation.setOnItemSelectedListener { item ->
-            when (item.itemId){
+            when (item.itemId) {
                 R.id.ic_home -> {
                     replaceFragment(teamsFragment)
                     true
@@ -57,23 +59,28 @@ class TeamsActivity : AppCompatActivity() {
                     replaceFragment(presencaFragment)
                     true
                 }
-
             }
             true
         }
 
         // Configuração da RecyclerView
-        //reciclerTurmas = findViewById(R.id.rv_teams)
+        // Inicialização da RV(RecycleView) e do Adapter
 
-        // * Determinar o layout da RV(RecycleView)
-        //reciclerTurmas.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        recyclerViewTurmas = findViewById(R.id.idrecyclerTeams)
+        dashBoardAdapter = DashboardAdapter(this)
 
-        //reciclerTurmas.layoutManager = GridLayoutManager(this, 2 )
+        // Determinar o layout da RV(RecycleView)
+        recyclerViewTurmas.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
 
+        recyclerViewTurmas.layoutManager = GridLayoutManager(this, 2)
+
+        //* Definindo a Adapter da RV(RecycleView)
+        recyclerViewTurmas.adapter = dashBoardAdapter
     }
 
-    private fun replaceFragment(fragment: Fragment){
-        if (fragment != null){
+    private fun replaceFragment(fragment: Fragment) {
+        if (fragment != null) {
 
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container, fragment)
