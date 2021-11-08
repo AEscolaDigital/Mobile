@@ -1,22 +1,14 @@
-package com.example.school.api.school
+package com.example.school.models
 
-import com.google.gson.Gson
+import com.example.school.models.Adress
 
 data class School(
-    var name :String,
-    var phone : String,
-    var name_school : String,
-    var cnpj :String,
-    var school_size : String,
-    var address : Gson,
-    var cep : String,
-    var street: String,
-    var district: String,
-    var number: String,
-    var complement: String,
-    var city: String,
-    var state: String,
-    var uf_sate: String,
+    var name:String,
+    var phone: String,
+    var name_school: String,
+    var cnpj:String,
+    var school_size: String,
+    var address: Adress,
     var email: String,
     var password:String
     /*{
