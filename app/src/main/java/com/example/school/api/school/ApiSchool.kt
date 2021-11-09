@@ -1,6 +1,7 @@
 package com.example.school.api.school
 
 import com.example.school.models.School
+import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
