@@ -16,6 +16,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
 class LoginActivity : AppCompatActivity() {
 
     lateinit var textViewCreateNewUser: TextView
@@ -43,8 +44,6 @@ class LoginActivity : AppCompatActivity() {
         layout_email = findViewById(R.id.inputLayoutEmail)
         layout_password = findViewById(R.id.inputLayoutPassword)
 
-
-
         button.setOnClickListener{
             login()
         }
@@ -57,40 +56,47 @@ class LoginActivity : AppCompatActivity() {
     private fun login (){
         if(validate()){
 
-            //val login = Login(role, email, password)
             var login = Login()
             login.role = "ROLE_ADMIN"
             login.email = edit_email.text.toString()
             login.password = edit_password.text.toString()
 
-
             val remote = ApiSchool.SchoolEndPoint().sessionsService()
-
             val call: Call<Login> = remote.login(login)
-//samuel.a.goulart@gmail.com
-// 123456
+
             call.enqueue(object : Callback<Login> {
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
 
                     val user = response
-                    if(user.code() == 403){
-                        return Toast.makeText(applicationContext, "USUÁRIO OU SENHA INCORRETOS", Toast.LENGTH_LONG).show()
-                    }else{
+                    if (user.code() == 403) {
+                        return Toast.makeText(
+                            applicationContext,
+                            "USUÁRIO OU SENHA INCORRETOS",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    } else {
                         Toast.makeText(applicationContext, "Login concluido", Toast.LENGTH_LONG).show()
-                        Log.i("XPTO", "Sucesso ao fazer login")
+                        //This parte save the Jwt, email and key of user in shared Preference
+                        val sharedPreferences = getSharedPreferences("school", MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.putString("JWT", user.body()?.token.toString())
+                        editor.putString("EMAIL", user.body()?.user?.email.toString())
+                        editor.putString("NAME", user.body()?.user?.name.toString())
+                        editor.apply()
+
                         openDashboard()
 
-                        Log.d("CODE", user.code().toString())
-                        Log.d("XPTO", user.body().toString())
-                        Log.d("MENSAGEM", user.message())
+                        /*//For using data in sharedPreferences use this exemplo:
+                        * val dados = getSharedPreferences("school", Context.MODE_PRIVATE)
+                          val info = dados.getString("JWT","Não encontrado")
+                          Log.i("XPTO HERE", info.toString()) */
                     }
-
                 }
 
                 override fun onFailure(call: Call<Login>, error: Throwable) {
-                    Toast.makeText(applicationContext, "Erro ao fazer login!", Toast.LENGTH_LONG).show()
-                    Log.i("XPTO", error.message.toString())
-                    /*Log.i("XPTO", "Erro ao fazer login")*/
+                    Toast.makeText(applicationContext, "Erro ao fazer login!", Toast.LENGTH_LONG)
+                        .show()
+                    //Log.i("XPTO", error.message.toString())
                 }
             })
 
@@ -105,11 +111,11 @@ class LoginActivity : AppCompatActivity() {
 
         if(edit_email.text.isEmpty()){
             error = false
-            edit_email.error = "Campo obrigatorio"
+            edit_email.error = "Campo necessário"
         }
         if(edit_password.text.isEmpty()){
             var error = false
-            edit_password.error = "Campo necessario"
+            edit_password.error = "Campo necessário"
         }
 
         return error

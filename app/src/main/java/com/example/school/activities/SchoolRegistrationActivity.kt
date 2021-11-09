@@ -1,5 +1,6 @@
 package com.example.school.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -211,21 +212,19 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             val school: School = School(name,phone, companyName, cnpj, school_size, adress,email, password)
 
             val remote = ApiSchool.SchoolEndPoint().getService()
-
             val call: Call<School> = remote.register(school)
-
 
             call.enqueue(object : Callback<School> {
                 override fun onResponse(call: Call<School>, response: Response<School>) {
                     Toast.makeText(applicationContext, "Escola cadastrada com sucesso!", Toast.LENGTH_LONG).show()
-                    Log.i("XPTO", "Escola cadastrada com sucesso")
-                    Log.i("XPTO", response.message().toString())
+                    /*Log.i("XPTO", "Escola cadastrada com sucesso")
+                    Log.i("XPTO", response.message().toString())*/
                 }
 
                 override fun onFailure(call: Call<School>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
-                    Log.i("XPTO", error.message.toString())
-                    Log.i("XPTO", "Erro ao cadastrar escola")
+                    /*Log.i("XPTO", error.message.toString())
+                    Log.i("XPTO", "Erro ao cadastrar escola")*/
                 }
             })
         }

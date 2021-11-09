@@ -11,17 +11,17 @@ import retrofit2.http.POST
 class ApiSchool {
 
     interface ApiService {
-        @POST("schools/")
+        @POST("schools")
         fun register(@Body body: School): Call<School>
     }
 
     interface Sessions{
-        @POST("/sessions")
+        @POST("sessions")
         fun login(@Body body: com.example.school.models.Login): Call<com.example.school.models.Login>
     }
 
     class SchoolEndPoint {
-        val url = "http://192.168.56.1:3333/"
+        val url = "http://10.0.0.103:3333/"
         val service = Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build()
 
         fun getService(): ApiService {
