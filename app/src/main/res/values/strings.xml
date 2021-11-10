@@ -5,7 +5,7 @@
 
 
     <string-array name="materias">
-        <item>Português</item>
+        <item>Selecione alguma turma</item>
         <item>Matemática</item>
         <item>Projetos</item>
         <item>Front-end</item>
