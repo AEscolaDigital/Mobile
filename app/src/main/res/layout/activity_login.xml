@@ -13,11 +13,12 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingEnd="0dp"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="20dp">
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/edit_email"
@@ -35,14 +36,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutEmail"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutEmail"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutEmail"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="20dp">
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/edit_password"
             android:layout_width="match_parent"
-            android:layout_height="61dp"
+            android:layout_height="60dp"
             android:hint="Senha"
             android:inputType="textPassword" />
 
@@ -52,45 +54,85 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_educ_tec" />
 
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Qual seu tipo de usuário ? "
+        android:textColor="@color/textColor"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toTopOf="@+id/rdg1"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutPassword"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
+
+
+    <RadioGroup
+        android:id="@+id/rdg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword">
+
+        <RadioButton
+            android:id="@+id/rdg1btn1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Aluno ou Professor" />
+
+        <RadioButton
+            android:id="@+id/rdg1btn2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Administrador" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
+        android:text="Entrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdg1" />
+
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="Esqueceu sua senha?"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
+        android:layout_marginTop="20dp"
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/button_background"
-        android:text="Ingressar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/text_view_create_new_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
         android:text=" Não tem cadastro? cadastre-se "
         android:textAppearance="@style/subTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
