@@ -26,6 +26,8 @@ class TeamsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teams)
+
+        //set teamsFragment per default
         replaceFragment(teamsFragment)
 
         // Remover a AppBar
@@ -66,7 +68,7 @@ class TeamsActivity : AppCompatActivity() {
         // Configuração da RecyclerView
         // Inicialização da RV(RecycleView) e do Adapter
 
-        recyclerViewTurmas = findViewById(R.id.idrecyclerTeams)
+        recyclerViewTurmas = findViewById(R.id.recycler_teams)
         dashBoardAdapter = DashboardAdapter(this)
 
         // Determinar o layout da RV(RecycleView)
@@ -81,7 +83,6 @@ class TeamsActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         if (fragment != null) {
-
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container, fragment)
             transaction.commit()
