@@ -106,12 +106,11 @@
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_marginTop="30dp"
-        android:layout_height="520dp"
+        android:layout_width="401dp"
+        android:layout_height="598dp"
         app:layout_constraintBottom_toTopOf="@+id/navegation_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_suasTurmas" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
