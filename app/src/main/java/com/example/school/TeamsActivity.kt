@@ -15,8 +15,6 @@ class TeamsActivity : AppCompatActivity() {
     lateinit var bottom_navigation: BottomNavigationView
     lateinit var recyclerViewTurmas: RecyclerView
 
-    lateinit var dashBoardAdapter: DashboardAdapter
-
     private val teamsFragment = TeamsFragment()
     private val taskFragment = TaskFragment()
     private val memberFragment = MemberFragment()
@@ -65,20 +63,7 @@ class TeamsActivity : AppCompatActivity() {
             true
         }
 
-        // Configuração da RecyclerView
-        // Inicialização da RV(RecycleView) e do Adapter
 
-        recyclerViewTurmas = findViewById(R.id.recycler_teams)
-        dashBoardAdapter = DashboardAdapter(this)
-
-        // Determinar o layout da RV(RecycleView)
-        recyclerViewTurmas.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-
-        recyclerViewTurmas.layoutManager = GridLayoutManager(this, 2)
-
-        //* Definindo a Adapter da RV(RecycleView)
-        recyclerViewTurmas.adapter = dashBoardAdapter
     }
 
     private fun replaceFragment(fragment: Fragment) {
