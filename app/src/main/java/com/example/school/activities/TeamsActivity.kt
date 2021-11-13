@@ -68,11 +68,9 @@ class TeamsActivity : AppCompatActivity() {
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        if (fragment != null) {
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, fragment)
-            transaction.commit()
-        }
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.commit()
     }
 }
 

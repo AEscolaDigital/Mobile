@@ -30,11 +30,12 @@ class TeamsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_teams, container, false)
     }
 
+    @Suppress("DEPRECATION")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val context = view?.context //?.context!!.applicationContext
+        val context = view.context
 
-        recyclerViewTurmas = view?.findViewById(R.id.recycler_teams)!!
+        recyclerViewTurmas = view.findViewById(R.id.recycler_teams)!!
         dashBoardAdapter = DashboardAdapter(context)
 
         // Determinar o layout da RV(RecycleView)

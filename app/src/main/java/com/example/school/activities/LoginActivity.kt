@@ -114,7 +114,7 @@ class LoginActivity : AppCompatActivity() {
             edit_email.error = "Campo necessário"
         }
         if(edit_password.text.isEmpty()){
-            var error = false
+            error = false
             edit_password.error = "Campo necessário"
         }
 
