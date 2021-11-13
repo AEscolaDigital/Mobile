@@ -41,36 +41,36 @@
             android:src="@drawable/perfil" />
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tv_suasTurmas"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:text="Suas Turmas"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+<!--    <TextView-->
+<!--        android:id="@+id/tv_suasTurmas"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="50dp"-->
+<!--        android:text="Suas Turmas"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
 
-        android:textColor="@color/textColor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
+<!--        android:textColor="@color/textColor"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />-->
 
 
-    <Button
-        android:id="@+id/btn_criar_disciplina"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/btn_criar_disciplina"
-        android:gravity="center"
+<!--    <Button-->
+<!--        android:id="@+id/btn_criar_disciplina"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="30dp"-->
+<!--        android:layout_marginEnd="20dp"-->
+<!--        android:background="@drawable/btn_criar_disciplina"-->
+<!--        android:gravity="center"-->
 
-        android:text="Criar Disciplina"
-        android:textColor="@color/textColor"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textSize="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_suasTurmas"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"
+<!--        android:text="Criar Disciplina"-->
+<!--        android:textColor="@color/textColor"-->
+<!--        android:textAppearance="@style/TextAppearance.AppCompat.Medium"-->
+<!--        android:textSize="12dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tv_suasTurmas"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas"-->
 
-        />
+<!--        />-->
 
 
 <!--        <androidx.recyclerview.widget.RecyclerView-->
@@ -101,14 +101,16 @@
 
         app:itemTextColor="@color/white">
 
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/navegation_bottom" />
-
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="401dp"
+        android:layout_height="598dp"
+        app:layout_constraintBottom_toTopOf="@+id/navegation_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

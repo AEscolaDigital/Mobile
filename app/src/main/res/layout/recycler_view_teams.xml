@@ -13,6 +13,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
         android:background="@color/blue"
 
         app:cardCornerRadius="16dp">
@@ -37,6 +38,7 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
+                    android:id="@+id/imageDiscipline"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/shadow"
@@ -46,6 +48,7 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/name_matter"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -54,7 +57,7 @@
                 android:textColor="@color/textColor" />
 
             <TextView
-
+                android:id="@+id/name_teacher"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"

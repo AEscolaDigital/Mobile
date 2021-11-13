@@ -3,30 +3,30 @@
 
 
     <item
-        android:id="@+id/addMembros"
+        android:id="@+id/ic_addMembros"
         android:icon="@drawable/ic_baseline_group_24"
         android:title="Membros"
         />
 
     <item
-        android:id="@+id/tarefas"
+        android:id="@+id/ic_tarefas"
         android:icon="@drawable/ic_baseline_bag_24"
         android:title="Tarefas"
         />
 
     <item
-        android:id="@+id/home"
+        android:id="@+id/ic_home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Home"/>
 
     <item
-        android:id="@+id/group3"
+        android:id="@+id/ic_chamada"
         android:icon="@drawable/ic_baseline_fact_check_24"
-        android:title="grupo"
+        android:title="Chamada"
         />
 
     <item
-        android:id="@+id/presenca"
+        android:id="@+id/ic_presenca"
         android:icon="@drawable/ic_baseline_library_books_24"
         android:title="Presença"
         />
