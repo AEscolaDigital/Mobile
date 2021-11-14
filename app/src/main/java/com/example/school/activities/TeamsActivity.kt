@@ -14,13 +14,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class TeamsActivity : AppCompatActivity() {
 
     lateinit var bottom_navigation: BottomNavigationView
-    lateinit var recyclerViewTurmas: RecyclerView
 
     private val teamsFragment = TeamsFragment()
     private val taskFragment = TaskFragment()
     private val memberFragment = MemberFragment()
     private val callFragment = CallFragment()
     private val presencaFragment = PresencaFragment()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +34,8 @@ class TeamsActivity : AppCompatActivity() {
 
 
         bottom_navigation = findViewById(R.id.navegation_bottom)
+
+        //TODO: fazer com que o teamsFragment seja selecionado por default
 
         // Fazendo a troca de tela ao clicar em um icone no bottom_navigation
         bottom_navigation.setOnItemSelectedListener { item ->

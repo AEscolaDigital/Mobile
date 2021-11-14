@@ -1,4 +1,4 @@
-package com.example.school.api.discipline
+package com.example.school.models
 
 data class Discipline (
     var id: Int,

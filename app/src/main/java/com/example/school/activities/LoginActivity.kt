@@ -61,6 +61,8 @@ class LoginActivity : AppCompatActivity() {
             login.email = edit_email.text.toString()
             login.password = edit_password.text.toString()
 
+            Log.i("A",login.password)
+
             val remote = ApiSchool.SchoolEndPoint().sessionsService()
             val call: Call<Login> = remote.login(login)
 
@@ -96,7 +98,7 @@ class LoginActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<Login>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao fazer login!", Toast.LENGTH_LONG)
                         .show()
-                    //Log.i("XPTO", error.message.toString())
+                    Log.i("XPTO", error.message.toString())
                 }
             })
 
@@ -126,7 +128,7 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     private fun openDashboard() {
-        val registerScreen = Intent(this, SchoolRegistrationActivity::class.java)
+        val registerScreen = Intent(this, TeamsActivity::class.java)
         startActivity(registerScreen)
     }
 

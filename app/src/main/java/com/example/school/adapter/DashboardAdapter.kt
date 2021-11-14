@@ -4,11 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
-import com.example.school.api.discipline.Discipline
+import com.example.school.models.Discipline
 
 class DashboardAdapter(var context: Context) :
     RecyclerView.Adapter<DashboardAdapter.DashViewHolder>() {
