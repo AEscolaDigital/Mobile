@@ -34,7 +34,8 @@ class MainActivity : AppCompatActivity() {
 
 
         bottom_navigation = findViewById(R.id.navegation_bottom)
-        bottom_navigation.selectedItemId
+        //set bottom navigation default item selected
+        bottom_navigation.selectedItemId = R.id.ic_home
 
         // Fazendo a troca de tela ao clicar em um icone no bottom_navigation
         bottom_navigation.setOnItemSelectedListener { item ->
