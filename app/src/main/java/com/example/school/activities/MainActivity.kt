@@ -11,7 +11,7 @@ import com.example.school.adapter.DashboardAdapter
 import com.example.school.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class TeamsActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var bottom_navigation: BottomNavigationView
 
@@ -34,8 +34,7 @@ class TeamsActivity : AppCompatActivity() {
 
 
         bottom_navigation = findViewById(R.id.navegation_bottom)
-
-        //TODO: fazer com que o teamsFragment seja selecionado por default
+        bottom_navigation.selectedItemId
 
         // Fazendo a troca de tela ao clicar em um icone no bottom_navigation
         bottom_navigation.setOnItemSelectedListener { item ->

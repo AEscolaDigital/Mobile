@@ -77,13 +77,13 @@
         android:text="Qual seu tipo de usuário ? "
         android:textColor="@color/textColor"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/rdg1"
+        app:layout_constraintBottom_toTopOf="@+id/type_user_login"
         app:layout_constraintStart_toStartOf="@+id/inputLayoutPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword" />
 
 
     <RadioGroup
-        android:id="@+id/rdg1"
+        android:id="@+id/type_user_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -93,7 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword">
 
         <RadioButton
-            android:id="@+id/radioAlunoProfessor"
+            android:id="@+id/radio_aluno_professor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -101,7 +101,7 @@
             android:text="Aluno ou Professor" />
 
         <RadioButton
-            android:id="@+id/radioAdministrador"
+            android:id="@+id/radio_administrador"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="@color/blue"
@@ -120,7 +120,7 @@
         android:background="@drawable/button_background"
         android:text="Entrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rdg1" />
+        app:layout_constraintTop_toBottomOf="@+id/type_user_login" />
 
     <TextView
         android:id="@+id/textView3"

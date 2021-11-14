@@ -17,7 +17,7 @@ class ApiSchool {
     }
 
     interface Sessions{
-        @POST("/sessions")
+        @POST("sessions")
         fun login(@Body body: com.example.school.models.Login): Call<com.example.school.models.Login>
     }
 

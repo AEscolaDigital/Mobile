@@ -3,10 +3,7 @@ package com.example.school.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.school.R
 import com.example.school.api.school.ApiSchool
@@ -26,7 +23,10 @@ class LoginActivity : AppCompatActivity() {
     lateinit var layout_email : TextInputLayout
     lateinit var layout_password : TextInputLayout
 
+    lateinit var radio_type_user: RadioGroup
     lateinit var button : Button
+
+    private var roleUser:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,29 +39,40 @@ class LoginActivity : AppCompatActivity() {
         edit_email = findViewById(R.id.edit_email)
         edit_password = findViewById(R.id.edit_password)
 
-        button = findViewById(R.id.button)
-
         layout_email = findViewById(R.id.inputLayoutEmail)
         layout_password = findViewById(R.id.inputLayoutPassword)
+
+        radio_type_user = findViewById(R.id.type_user_login)
+        button = findViewById(R.id.button)
+
+
+        textViewCreateNewUser.setOnClickListener {
+            openCreateNewUser()
+        }
+
+        radio_type_user.setOnCheckedChangeListener { group, checkedId ->
+            if (checkedId == R.id.radio_aluno_professor) {
+                roleUser = "ROLE_USER"
+            } else {
+                roleUser = "ROLE_ADMIN"
+            }
+        }
 
         button.setOnClickListener{
             login()
         }
 
-        textViewCreateNewUser.setOnClickListener {
-            openCreateNewUser()
-        }
     }
 
     private fun login (){
         if(validate()){
 
             var login = Login()
-            login.role = "ROLE_ADMIN"
+            login.role = roleUser
             login.email = edit_email.text.toString()
             login.password = edit_password.text.toString()
 
-            Log.i("A",login.password)
+            //Log.i("ASENHA",login.password)
 
             val remote = ApiSchool.SchoolEndPoint().sessionsService()
             val call: Call<Login> = remote.login(login)
@@ -128,8 +139,10 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
     private fun openDashboard() {
-        val registerScreen = Intent(this, TeamsActivity::class.java)
+        val registerScreen = Intent(this, MainActivity::class.java)
         startActivity(registerScreen)
     }
+
+
 
 }
