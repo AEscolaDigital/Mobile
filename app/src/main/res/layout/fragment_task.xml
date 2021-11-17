@@ -1,94 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TaskFragment">
+    android:fitsSystemWindows="false"
+    tools:openDrawer="start">
 
-<!--    <androidx.drawerlayout.widget.DrawerLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:fitsSystemWindows="true"-->
-<!--        tools:openDrawer="start"-->
-<!--        >-->
 
-            <com.google.android.material.navigation.NavigationView
-                android:id="@+id/navigationView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="start"
-                app:headerLayout="@layout/header_drawer"
-                app:menu="@menu/menu_navegation_bottom"
-                />
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_drawer"
+        app:menu="@menu/menu_drawer_task" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp">
+        tools:context=".fragments.TaskFragment">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/btn_atributo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
 
-            android:text="Atribuida"
-            android:textSize="16dp"
-            android:layout_marginStart="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_concluido"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btn_concluido" />
-
-        <View
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_concluido" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/btn_concluido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btn_atributo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:layout_marginTop="80dp"
-            android:layout_marginEnd="4dp"
-            android:text="Concluída"
-            android:textSize="16dp"
+                android:layout_marginStart="30dp"
+                android:text="Atribuida"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_concluido"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_concluido" />
 
-            app:layout_constraintEnd_toStartOf="@+id/btn_add_task"
-            app:layout_constraintStart_toEndOf="@+id/btn_atributo"
-            app:layout_constraintTop_toTopOf="parent" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@android:color/darker_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_concluido" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/btn_concluido"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="4dp"
+                android:text="Concluída"
+                android:textSize="16dp"
+
+                app:layout_constraintEnd_toStartOf="@+id/btn_add_task"
+                app:layout_constraintStart_toEndOf="@+id/btn_atributo"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        <Button
-            android:id="@+id/btn_add_task"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="20dp"
+            <Button
+                android:id="@+id/btn_add_task"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="20dp"
 
-            android:background="@drawable/btn_criar_disciplina"
-            android:drawableStart="@drawable/note_add_24"
-            android:drawableTint="@color/iconColor"
-            android:text="Adicionar Tarefa"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textColor"
-            android:textSize="12dp"
-            app:layout_constraintBottom_toTopOf="@+id/btn_concluido"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fillViewport="true"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/btn_concluido">
-
+                android:background="@drawable/btn_criar_disciplina"
+                android:drawableStart="@drawable/note_add_24"
+                android:drawableTint="@color/iconColor"
+                android:text="Adicionar Tarefa"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/btn_concluido"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_teams"
@@ -102,11 +93,8 @@
                 app:layout_constraintTop_toBottomOf="@+id/btn_concluido"
                 tools:listitem="@layout/recycler_view_task" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-<!--</androidx.drawerlayout.widget.DrawerLayout>-->
-</FrameLayout>
+    </FrameLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
 
