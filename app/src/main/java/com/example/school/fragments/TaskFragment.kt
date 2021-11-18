@@ -14,23 +14,9 @@ class TaskFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       // setContentView(R.layout.activity_teams)
-
-        btn_add_task = findViewById(R.id.btn_add_task)
+        // setContentView(R.layout.activity_teams)
 
 
-        btn_add_task.setOnClickListener{
-
-            val view = View.inflate(this, R.layout.dialog_task, null)
-
-            val builder = AlertDialog.Builder(this)
-            builder.setView(view)
-
-            val dialog = builder.create()
-            dialog.show()
-
-            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-        }
     }
 
     override fun onCreateView(
@@ -39,8 +25,29 @@ class TaskFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         var rootView: View = inflater.inflate(R.layout.dialog_task, container, false)
-        return rootView
-        //return inflater.inflate(R.layout.fragment_task, container, false)
+        //return rootView
+        return inflater.inflate(R.layout.fragment_task, container, false)
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val context = view.context
+        btn_add_task = view.findViewById(R.id.btn_add_task)
+
+
+        btn_add_task.setOnClickListener{
+
+            val view = View.inflate(context, R.layout.dialog_task, null)
+
+            val builder = AlertDialog.Builder(context)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        }
     }
 
 
