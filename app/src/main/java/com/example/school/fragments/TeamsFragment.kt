@@ -51,14 +51,13 @@ class TeamsFragment : Fragment() {
 
         //call the shared preferences school and get jwt
         val sharedPreferences = context.getSharedPreferences("school", 0)
-        val jwt = sharedPreferences.getString("JWT", "")
+        val jwt = sharedPreferences.getString("JWT", "teste de chamada saida vazia")
 
-        Log.i("REQUEST", jwt!!)
-
+//z3h9d1ma
 
         //call the api for populate disciplines of studant
         val remote = ApiSchool.SchoolEndPoint().dashboardService()
-        val call: Call<List<Discipline>> = remote.listDisciplines(jwt!!)
+        val call: Call<List<Discipline>> = remote.listDisciplines("Bearer $jwt")
 
         //aply a request async and get the response
         call.enqueue(object : Callback<List<Discipline>> {

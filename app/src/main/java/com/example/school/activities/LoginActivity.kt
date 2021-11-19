@@ -99,10 +99,6 @@ class LoginActivity : AppCompatActivity() {
 
                         openDashboard()
 
-                        /*//For using data in sharedPreferences use this exemplo:
-                        * val dados = getSharedPreferences("school", Context.MODE_PRIVATE)
-                          val info = dados.getString("JWT","Não encontrado")
-                          Log.i("XPTO HERE", info.toString()) */
                     }
                 }
 
