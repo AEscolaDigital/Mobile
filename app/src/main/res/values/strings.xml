@@ -2,4 +2,14 @@
     <string name="app_name">School</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="turmas">
+        <item>3°A</item>
+        <item>3°B</item>
+        <item>3°C</item>
+        <item>3°D</item>
+        <item>3°E</item>
+        <item>3°F</item>
+    </string-array>
 </resources>
