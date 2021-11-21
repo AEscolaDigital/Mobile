@@ -38,7 +38,7 @@
                 app:cardCornerRadius="50dp">
 
                 <ImageView
-                    android:id="@+id/imageDiscipline"
+                    android:id="@+id/image_discipline"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/shadow"
