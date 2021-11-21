@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/id_task_1"
+        android:title="DS1M - FrontEnd"
+        />
+
+    <item
+        android:id="@+id/id_task_2"
+        android:title="DS1M - BackEnd"
+        />
+
+    <item
+        android:id="@+id/id_task_3"
+        android:title="DS1M - MobileEnd"
+        />
+
+    <item
+        android:id="@+id/id_task_4"
+        android:title="DS1M - FrontEnd"
+        />
+
+</menu>
