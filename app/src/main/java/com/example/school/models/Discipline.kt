@@ -5,6 +5,5 @@ data class Discipline (
     var name: String,
     var nameTeacher: String,
     var image : String,
-
 )
 

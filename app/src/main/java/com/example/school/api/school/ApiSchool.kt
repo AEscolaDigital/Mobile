@@ -25,6 +25,11 @@ class ApiSchool {
         fun listDisciplines(@Header("Authorization") token: String): Call<List<Discipline>>
     }
 
+    interface Task{
+        @POST
+        fun get()
+    }
+
     class SchoolEndPoint {
         val url = "http://10.0.0.103:3333/"
         val service = Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build()
@@ -39,6 +44,10 @@ class ApiSchool {
 
         fun dashboardService():Dashboad{
             return service.create(Dashboad::class.java)
+        }
+
+        fun taskService() :Task{
+            return service.create(Task::class.java)
         }
 
     }
