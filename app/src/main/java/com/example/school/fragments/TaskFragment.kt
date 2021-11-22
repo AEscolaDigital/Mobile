@@ -37,7 +37,6 @@ class TaskFragment : Fragment() {
 
 
         btn_add_task.setOnClickListener{
-
             val view = View.inflate(context, R.layout.dialog_task, null)
 
             val builder = AlertDialog.Builder(context)

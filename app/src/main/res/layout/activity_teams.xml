@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDEDED"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
 
     <EditText
@@ -54,16 +54,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/menu_navegation_bottom"></com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/menu_navegation_bottom"/>
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="594dp"
 
         app:layout_constraintBottom_toTopOf="@+id/navegation_bottom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
-
+</androidx.constraintlayout.widget.ConstraintLayout>

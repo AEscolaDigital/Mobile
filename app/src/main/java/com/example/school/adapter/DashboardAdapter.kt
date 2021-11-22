@@ -44,7 +44,7 @@ class DashboardAdapter(var context: Context) :
         val discipline = listaDisciplina[position]
 
         holder.tvMatter.text = discipline.name
-        holder.tvNameTeacher.text = discipline.nameTeacher
+        holder.tvNameTeacher.text = discipline.teacher_name
         Glide.with(context).load(discipline.image).into(holder.imageDiscipline)
         
     }

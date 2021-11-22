@@ -65,7 +65,7 @@ class TeamsFragment : Fragment() {
         //aply a request async and get the response
         call.enqueue(object : Callback<List<Discipline>> {
             override fun onResponse(call: Call<List<Discipline>>, response: Response<List<Discipline>>) {
-                Log.i("RESPONSE", response.body().toString())
+                Log.i("RESPONSE body", response.body().toString())
                 Log.i("RESPONSE", response.message().toString())
                 Log.i("RESPONSE", response.code().toString())
                 Log.i("RESPONSE", response.errorBody().toString())
@@ -84,27 +84,6 @@ class TeamsFragment : Fragment() {
         })
 
 
-
-/*
-        call.enqueue(object : Callback<List<Discipline>> {
-            override fun onResponse(call: Call<List<Discipline>>, response: Response<List<Discipline>>) {
-                /*dashBoardAdapter.updateListasDisciplina(response.body()!!)*/
-                Log.i("RESPONSE", response.body().toString())
-                Log.i("RESPONSE", response.message().toString())
-                Log.i("RESPONSE", response.code().toString())
-                Log.i("RESPONSE", response.errorBody().toString())
-                Log.i("RESPONSE", response.isSuccessful.toString())
-                Log.i("RESPONSE", response.headers().toString())
-                Log.i("RESPONSE", response.raw().toString())
-
-            }
-
-            override fun onFailure(call: Call<List<Discipline>>, t: Throwable) {
-                Log.e("onFailure", t.message.toString())
-            }
-
-        })
-*/
 
     }
 
