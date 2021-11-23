@@ -7,7 +7,9 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.school.R
+import com.example.school.api.school.ApiSchool
 import com.example.school.models.Task
+import retrofit2.Call
 import java.util.*
 
 class TaskFragment : Fragment() {
@@ -37,7 +39,13 @@ class TaskFragment : Fragment() {
         val context = view.context
         btn_add_task = view.findViewById(R.id.btn_add_task)
 
+        //call the shared preferences school and get jwt
+        val sharedPreferences = context.getSharedPreferences("school", 0)
+        val jwt = sharedPreferences.getString("JWT", "teste de chamada saida vazia")
 
+        //call the api for populate task of studant
+        val remote = ApiSchool.SchoolEndPoint().taskService()
+        val call: Call<Task> = remote.listTask("Bearer $jwt")
 
 
         btn_add_task.setOnClickListener{

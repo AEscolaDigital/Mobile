@@ -27,7 +27,7 @@ class ApiSchool {
 
     interface Task{
         @POST
-        fun get()
+        fun listTask(@Header("Authorization") token: String): Call<List<Task>>
     }
 
     class SchoolEndPoint {
