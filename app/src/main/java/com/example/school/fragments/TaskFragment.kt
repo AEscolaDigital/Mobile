@@ -13,17 +13,11 @@ import java.util.*
 class TaskFragment : Fragment() {
 
     lateinit var btn_add_task: Button
-    lateinit var edNome: EditText
-    lateinit var edDescription: EditText
-    lateinit var edData: EditText
-    lateinit var edPontuacao : EditText
-    lateinit var edAnexo : EditText
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // setContentView(R.layout.activity_teams)
-
 
     }
 
@@ -43,20 +37,7 @@ class TaskFragment : Fragment() {
         val context = view.context
         btn_add_task = view.findViewById(R.id.btn_add_task)
 
-        edNome = view.findViewById(R.id.ed_nome_task)
-        edDescription = view.findViewById(R.id.ed_descricao_task)
-        edData = view.findViewById(R.id.ed_data)
-        edPontuacao = view.findViewById(R.id.ed_pontuacao)
-        edAnexo = view.findViewById(R.id.ed_anexo)
 
-
-        val task:Task = Task()
-        task.id = 1
-        task.description = "I do not  know"
-        task.attachment = "Vai se ..."
-        task.deliveryDate = Date()
-        task.title = "Consumir API "
-        task.punctuation = 20
 
 
         btn_add_task.setOnClickListener{
