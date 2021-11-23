@@ -28,6 +28,9 @@ class ApiSchool {
     interface classes {
         @GET("/classes/1")
         fun listClasses(@Header("Authorization") token: String): Call<List<Discipline>>
+    interface Task{
+        @POST
+        fun get()
     }
 
     class SchoolEndPoint {
@@ -44,6 +47,10 @@ class ApiSchool {
 
         fun dashboardService():Dashboad{
             return service.create(Dashboad::class.java)
+        }
+
+        fun taskService() :Task{
+            return service.create(Task::class.java)
         }
 
     }
