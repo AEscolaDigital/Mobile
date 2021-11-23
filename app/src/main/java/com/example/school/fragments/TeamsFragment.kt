@@ -1,26 +1,19 @@
 package com.example.school.fragments
 
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
 import com.example.school.adapter.DashboardAdapter
 import com.example.school.api.school.ApiSchool
 import com.example.school.models.Discipline
-import com.example.school.models.Login
-import com.example.school.models.UserLogiResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.http.Url
-import java.net.URLConnection
 
 class TeamsFragment : Fragment() {
     private lateinit var recyclerViewTurmas :RecyclerView
@@ -65,13 +58,13 @@ class TeamsFragment : Fragment() {
         //aply a request async and get the response
         call.enqueue(object : Callback<List<Discipline>> {
             override fun onResponse(call: Call<List<Discipline>>, response: Response<List<Discipline>>) {
-                Log.i("RESPONSE body", response.body().toString())
+                /*Log.i("RESPONSE body", response.body().toString())
                 Log.i("RESPONSE", response.message().toString())
                 Log.i("RESPONSE", response.code().toString())
                 Log.i("RESPONSE", response.errorBody().toString())
                 Log.i("RESPONSE", response.isSuccessful.toString())
                 Log.i("RESPONSE", response.headers().toString())
-                Log.i("RESPONSE", response.raw().toString())
+                Log.i("RESPONSE", response.raw().toString())*/
 
                 if(response.code() == 200){
                     dashBoardAdapter.updateListasDisciplina(response.body()!!)
@@ -79,7 +72,7 @@ class TeamsFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<List<Discipline>>, t: Throwable) {
-                Log.i("REQUEST", "FAIL")
+                /*Log.i("REQUEST", "FAIL")*/
             }
         })
 

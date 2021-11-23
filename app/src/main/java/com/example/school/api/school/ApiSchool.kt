@@ -25,6 +25,11 @@ class ApiSchool {
         fun listDisciplines(@Header("Authorization") token: String): Call<List<Discipline>>
     }
 
+    interface classes {
+        @GET("/classes/1")
+        fun listClasses(@Header("Authorization") token: String): Call<List<Discipline>>
+    }
+
     class SchoolEndPoint {
         val url = "http://192.168.137.1:3333/"
         val service = Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build()
