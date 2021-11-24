@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
-        android:id="@+id/ic_addMembros"
-        android:icon="@drawable/ic_baseline_group_24"
-        android:title="Membros"
-        />
-
-    <item
-        android:id="@+id/ic_tarefas"
-        android:icon="@drawable/ic_baseline_bag_24"
-        android:title="Tarefas"
+        android:id="@+id/ic_chamada"
+        android:icon="@drawable/ic_baseline_fact_check_24"
+        android:title="Chamada"
         />
 
     <item
@@ -20,19 +13,9 @@
         android:title="Home"/>
 
     <item
-        android:id="@+id/ic_chamada"
-        android:icon="@drawable/ic_baseline_fact_check_24"
-        android:title="Chamada"
+        android:id="@+id/ic_tarefas"
+        android:icon="@drawable/ic_baseline_bag_24"
+        android:title="Tarefas"
         />
-
-    <item
-        android:id="@+id/ic_presenca"
-        android:icon="@drawable/ic_baseline_library_books_24"
-        android:title="Presença"
-        />
-
-
-
-
 
 </menu>

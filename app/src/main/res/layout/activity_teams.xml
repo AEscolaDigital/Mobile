@@ -102,8 +102,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:menu="@menu/menu_navegation_bottom"/>
 
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -112,7 +110,6 @@
 
         app:layout_constraintBottom_toTopOf="@+id/navegation_bottom"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_pesquisar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

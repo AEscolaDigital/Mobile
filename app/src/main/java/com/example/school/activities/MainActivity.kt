@@ -20,9 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private val teamsFragment = TeamsFragment()
     private val taskFragment = TaskFragment()
-    private val memberFragment = MemberFragment()
     private val callFragment = CallFragment()
-    private val presencaFragment = PresencaFragment()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,18 +49,9 @@ class MainActivity : AppCompatActivity() {
                     replaceFragment(taskFragment)
                     true
                 }
-                R.id.ic_addMembros -> {
-                    replaceFragment(memberFragment)
-                    true
-                }
 
                 R.id.ic_chamada -> {
                     replaceFragment(callFragment)
-                    true
-                }
-
-                R.id.ic_presenca -> {
-                    replaceFragment(presencaFragment)
                     true
                 }
             }
