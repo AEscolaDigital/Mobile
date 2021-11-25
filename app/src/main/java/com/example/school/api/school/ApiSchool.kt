@@ -38,6 +38,15 @@ class ApiSchool {
         class SchoolEndPoint {
             //val url = "http://192.168.137.1:3333/"
             val url = "http://10.107.144.2:3333/"
+    interface Task{
+        @POST
+        fun listTask(@Header("Authorization") token: String): Call<List<Task>>
+    }
+
+    class SchoolEndPoint {
+        //val url = "http://10.0.0.103:3333/"
+        val url = "http://10.107.144.2:3333/"
+        val service = Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build()
 
             val service = Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build()
 
