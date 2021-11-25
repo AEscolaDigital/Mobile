@@ -1,9 +1,11 @@
 package com.example.school.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.school.R
@@ -45,7 +47,7 @@ class TaskFragment : Fragment() {
 
         //call the api for populate task of studant
         val remote = ApiSchool.SchoolEndPoint().taskService()
-        val call: Call<Task> = remote.listTask("Bearer $jwt")
+        //val call: Call<List<ApiSchool.Task>> = remote.listTask("Bearer $jwt")
 
 
         btn_add_task.setOnClickListener{
@@ -60,4 +62,5 @@ class TaskFragment : Fragment() {
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         }
     }
+
 }

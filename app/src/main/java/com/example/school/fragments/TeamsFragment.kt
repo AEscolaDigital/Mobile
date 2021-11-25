@@ -1,10 +1,13 @@
 package com.example.school.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
@@ -18,6 +21,7 @@ import retrofit2.Response
 class TeamsFragment : Fragment() {
     private lateinit var recyclerViewTurmas :RecyclerView
     private lateinit var dashBoardAdapter: DashboardAdapter
+    lateinit var btn_criar_disciplina: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,15 +41,28 @@ class TeamsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         val context = view.context
 
+        btn_criar_disciplina = view.findViewById(R.id.btn_criar_disciplina)
+
         recyclerViewTurmas = view.findViewById(R.id.recycler_teams)!!
         dashBoardAdapter = DashboardAdapter(context)
-
         //layout of recyclerview, grid two columns
         recyclerViewTurmas.layoutManager = GridLayoutManager(context, 2)
         //LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
-
         //* Definindo a Adapter da RV(RecycleView)
         recyclerViewTurmas.adapter = dashBoardAdapter
+
+        btn_criar_disciplina.setOnClickListener {
+            val view = View.inflate(context, R.layout.dialog_displine, null)
+
+            val builder = AlertDialog.Builder(context)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+        }
 
         //call the shared preferences school and get jwt
         val sharedPreferences = context.getSharedPreferences("school", 0)
@@ -75,8 +92,6 @@ class TeamsFragment : Fragment() {
                 /*Log.i("REQUEST", "FAIL")*/
             }
         })
-
-
 
     }
 

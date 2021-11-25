@@ -13,16 +13,15 @@
         android:theme="@style/Theme.School"
         android:usesCleartextTraffic="true">
         <activity android:name=".activities.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        </activity>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activities.SchoolRegistrationActivity" />
 
-        <activity android:name=".activities.TeamsActivity">
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".activities.MainActivity">
         </activity>
     </application>
 

@@ -29,42 +29,36 @@ class ApiSchool {
     interface classes {
         @GET("/classes/1")
         fun listClasses(@Header("Authorization") token: String): Call<List<Discipline>>
-        interface Task {
-            @POST
-            fun get()
-        }
+
     }
 
-        class SchoolEndPoint {
-            //val url = "http://192.168.137.1:3333/"
-            val url = "http://10.107.144.2:3333/"
-    interface Task{
+    interface Task {
         @POST
         fun listTask(@Header("Authorization") token: String): Call<List<Task>>
     }
 
     class SchoolEndPoint {
-        //val url = "http://10.0.0.103:3333/"
-        val url = "http://10.107.144.2:3333/"
-        val service = Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build()
+        val url = "http://10.0.0.103:3333/"
+        //val url = "http://10.107.144.2:3333/"
+        val service =
+            Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create())
+                .build()
 
-            val service = Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create()).build()
-
-            fun getService(): ApiService {
-                return service.create(ApiService::class.java)
-            }
-
-            fun sessionsService(): Sessions {
-                return service.create(Sessions::class.java)
-            }
-
-            fun dashboardService(): Dashboad {
-                return service.create(Dashboad::class.java)
-            }
-
-            fun taskService(): Task {
-                return service.create(Task::class.java)
-            }
+        fun getService(): ApiService {
+            return service.create(ApiService::class.java)
         }
+
+        fun sessionsService(): Sessions {
+            return service.create(Sessions::class.java)
+        }
+
+        fun dashboardService(): Dashboad {
+            return service.create(Dashboad::class.java)
+        }
+
+        fun taskService(): Task {
+            return service.create(Task::class.java)
+        }
+    }
 }
 

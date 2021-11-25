@@ -25,10 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_teams)
+        setContentView(R.layout.main_activity_fragments)
 
-        //set teamsFragment per default
-        replaceFragment(teamsFragment)
 
         // Remover a AppBar
         supportActionBar!!.hide()
@@ -37,6 +35,8 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation = findViewById(R.id.navegation_bottom)
         //set bottom navigation default item selected
         bottom_navigation.selectedItemId = R.id.ic_home
+        //set teamsFragment per default
+        replaceFragment(teamsFragment)
 
         // Fazendo a troca de tela ao clicar em um icone no bottom_navigation
         bottom_navigation.setOnItemSelectedListener { item ->
