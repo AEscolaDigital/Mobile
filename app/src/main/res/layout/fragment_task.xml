@@ -8,14 +8,13 @@
     android:fitsSystemWindows="false"
     tools:openDrawer="start">
 
-
-<!--    <com.google.android.material.navigation.NavigationView-->
-<!--        android:id="@+id/navigationView"-->
-<!--        android:layout_width="280dp"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:layout_gravity="start"-->
-<!--        app:headerLayout="@layout/header_drawer"-->
-<!--        app:menu="@menu/menu_drawer_task" />-->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/header_drawer"
+        app:menu="@menu/menu_drawer_task" />
 
     <FrameLayout
         android:layout_width="match_parent"

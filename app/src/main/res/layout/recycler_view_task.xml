@@ -28,6 +28,7 @@
             app:cardCornerRadius="50dp">
 
             <ImageView
+                android:id="@+id/image_task"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -37,7 +38,7 @@
         </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_name_task"
                 android:layout_width="200dp"
                 android:layout_height="match_parent"
                 android:paddingTop="35dp"
@@ -50,13 +51,16 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btn_cancel_task"
+                android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:drawableStart="@drawable/cancel_24"
+                android:paddingStart="12dp"
+                android:background="@drawable/button_background_cancel"
                 android:scaleType="centerCrop"
-                android:src="@drawable/cancel_24"
-                app:tint="@color/blue" />
+                />
 
 
     </LinearLayout>

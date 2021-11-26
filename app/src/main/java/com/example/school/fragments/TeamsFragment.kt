@@ -91,7 +91,6 @@ class TeamsFragment : Fragment() {
                 /*Log.i("REQUEST", "FAIL")*/
             }
         })
-
     }
 
 }
