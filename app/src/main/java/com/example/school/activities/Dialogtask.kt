@@ -47,7 +47,7 @@ class Dialogtask : AppCompatActivity() {
         task.punctuation = 20
 
         btn_finalizar.setOnClickListener{
-
+            Log.i("XPTO", "BATEU NO BOTAO TASK SUBMIT")
         }
 
         validate()

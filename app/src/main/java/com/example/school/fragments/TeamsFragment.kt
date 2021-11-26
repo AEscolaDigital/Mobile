@@ -61,7 +61,6 @@ class TeamsFragment : Fragment() {
             dialog.show()
 
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
         }
 
         //call the shared preferences school and get jwt

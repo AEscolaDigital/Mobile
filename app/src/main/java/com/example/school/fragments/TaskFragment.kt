@@ -18,6 +18,7 @@ class TaskFragment : Fragment() {
 
     lateinit var btn_add_task: Button
 
+    lateinit var btn_finalizar:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +59,14 @@ class TaskFragment : Fragment() {
 
             val dialog = builder.create()
             dialog.show()
+
+
+            btn_finalizar= view.findViewById(R.id.btn_finalizar)
+
+            btn_finalizar.setOnClickListener {
+                Log.i("XPTO", "Botão finalizar tarefas")
+            }
+
 
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         }

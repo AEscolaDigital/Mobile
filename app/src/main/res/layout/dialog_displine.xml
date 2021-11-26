@@ -17,13 +17,13 @@
         android:text="Criar disciplina"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="@color/textColor"
-        app:layout_constraintBottom_toBottomOf="@+id/button2"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintBottom_toBottomOf="@+id/submit"
+        app:layout_constraintEnd_toStartOf="@+id/submit"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button2" />
+        app:layout_constraintTop_toTopOf="@+id/submit" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"
@@ -40,7 +40,7 @@
         app:cardCornerRadius="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2">
+        app:layout_constraintTop_toBottomOf="@+id/submit">
 
         <ImageView
             android:layout_width="match_parent"
@@ -50,7 +50,7 @@
     </androidx.cardview.widget.CardView>
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/discipline_title"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_margin="20dp"
@@ -63,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <Spinner
+        android:id="@+id/spinner_class"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_margin="30dp"
@@ -72,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/discipline_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
