@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
@@ -43,6 +44,10 @@ class TeamsFragment : Fragment() {
 
         btn_criar_disciplina = view.findViewById(R.id.btn_criar_disciplina)
 
+
+
+
+
         recyclerViewTurmas = view.findViewById(R.id.recycler_teams)!!
         dashBoardAdapter = DashboardAdapter(context)
         //layout of recyclerview, grid two columns
@@ -62,6 +67,9 @@ class TeamsFragment : Fragment() {
 
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         }
+
+        //Set btn_criar_disciplina INVISIBLE
+        //btn_criar_disciplina.setVisibility(View.INVISIBLE)
 
         //call the shared preferences school and get jwt
         val sharedPreferences = context.getSharedPreferences("school", 0)

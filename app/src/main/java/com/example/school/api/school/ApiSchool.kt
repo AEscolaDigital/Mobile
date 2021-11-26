@@ -38,7 +38,7 @@ class ApiSchool {
     }
 
     class SchoolEndPoint {
-        val url = "http://10.0.0.103:3333/"
+        val url = "https://educ-tec-back-end.herokuapp.com/"
         //val url = "http://10.107.144.2:3333/"
         val service =
             Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create())
