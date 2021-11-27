@@ -1,5 +1,8 @@
 package com.example.school.fragments
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.Spinner
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,9 +26,20 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TeamsFragment : Fragment() {
-    private lateinit var recyclerViewTurmas :RecyclerView
+    private lateinit var recyclerViewTurmas: RecyclerView
     private lateinit var dashBoardAdapter: DashboardAdapter
     lateinit var btn_criar_disciplina: Button
+
+    var imageBitMap: Bitmap? = null
+
+    //Dialog
+    lateinit var image_discipline: ImageView
+    lateinit var submit: Button
+    lateinit var discipline_title: EditText
+    lateinit var spinner_class: Spinner
+
+    //Consts
+    val CODE_IMAGE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +61,6 @@ class TeamsFragment : Fragment() {
 
         btn_criar_disciplina = view.findViewById(R.id.btn_criar_disciplina)
 
-
-
-
-
         recyclerViewTurmas = view.findViewById(R.id.recycler_teams)!!
         dashBoardAdapter = DashboardAdapter(context)
         //layout of recyclerview, grid two columns
@@ -66,7 +79,23 @@ class TeamsFragment : Fragment() {
             dialog.show()
 
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+            submit = view.findViewById(R.id.submit)
+            discipline_title = view.findViewById(R.id.discipline_title)
+            spinner_class = view.findViewById(R.id.spinner_class)
+            image_discipline = view.findViewById(R.id.image_discipline)
+
+
+            submit.setOnClickListener {
+                Log.i("XPTO", "criar disciplinas")
+            }
+
+            image_discipline.setOnClickListener {
+                abrirGaleria()
+            }
+
         }
+
 
         //Set btn_criar_disciplina INVISIBLE
         //btn_criar_disciplina.setVisibility(View.INVISIBLE)
@@ -81,7 +110,10 @@ class TeamsFragment : Fragment() {
 
         //aply a request async and get the response
         call.enqueue(object : Callback<List<Discipline>> {
-            override fun onResponse(call: Call<List<Discipline>>, response: Response<List<Discipline>>) {
+            override fun onResponse(
+                call: Call<List<Discipline>>,
+                response: Response<List<Discipline>>
+            ) {
                 /*Log.i("RESPONSE body", response.body().toString())
                 Log.i("RESPONSE", response.message().toString())
                 Log.i("RESPONSE", response.code().toString())
@@ -90,7 +122,7 @@ class TeamsFragment : Fragment() {
                 Log.i("RESPONSE", response.headers().toString())
                 Log.i("RESPONSE", response.raw().toString())*/
 
-                if(response.code() == 200){
+                if (response.code() == 200) {
                     dashBoardAdapter.updateListasDisciplina(response.body()!!)
                 }
             }
@@ -100,6 +132,44 @@ class TeamsFragment : Fragment() {
             }
         })
 
+    }
+
+    @Suppress("DEPRECATION")
+    private fun abrirGaleria() {
+
+        // Chamando a galeria de imagens
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+
+        // definir qual tipo de conteúdo deverá ser obtido
+        intent.type = "image/*"
+
+        // Iniciar a Activity, mas neste caso nós queremos que
+        // esta Activity retorne algo para gente, a imagem
+        this.startActivityForResult(
+            Intent.createChooser(
+                intent,
+                "Escolha uma foto"
+            ),
+            CODE_IMAGE
+        )
+    }
+
+    @Suppress("DEPRECATION")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == CODE_IMAGE && resultCode == -1) {
+
+            // Recuperar a imagem na stream
+            val stream = contentResolver.openInputStream(data!!.data!!)
+
+            // Transformar o resultado emn um BitMap
+            imageBitMap = BitmapFactory.decodeStream(stream)
+
+            // Colocar a imgaem no ImageView
+            image_discipline.setImageBitmap(imageBitMap)
+
+        }
     }
 
 }
