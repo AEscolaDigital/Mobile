@@ -56,26 +56,23 @@ class TaskFragment : Fragment() {
 
         //call the api for populate task of studant
         val remote = ApiSchool.SchoolEndPoint().taskService()
-        val call: Call<List<ApiSchool.Task>> = remote.listTask("Bearer $jwt")
+        val call: Call<List<Task>> = remote.listTask("Bearer $jwt")
 
         //aply a request async and get the response
 
-        call.enqueue(object : Callback<List<ApiSchool.Task>> {
-            override fun onResponse(call: Call<List<ApiSchool.Task>>, response: Response<List<ApiSchool.Task>>) {
-                /*Log.i("RESPONSE body", response.body().toString())
+        call.enqueue(object : Callback<List<Task>> {
+            override fun onResponse(call: Call<List<Task>>, response: Response<List<Task>>) {
+                Log.i("RESPONSE body", response.body().toString())
                 Log.i("RESPONSE", response.message().toString())
                 Log.i("RESPONSE", response.code().toString())
                 Log.i("RESPONSE", response.errorBody().toString())
                 Log.i("RESPONSE", response.isSuccessful.toString())
                 Log.i("RESPONSE", response.headers().toString())
-                Log.i("RESPONSE", response.raw().toString())*/
+                Log.i("RESPONSE", response.raw().toString())
 
-                if(response.code() == 200){
-//                    taskAdapter.updateListasDisciplina(response.body()!!)
-                }
             }
 
-            override fun onFailure(call: Call<List<ApiSchool.Task>>, t: Throwable) {
+            override fun onFailure(call: Call<List<Task>>, t: Throwable) {
                 /*Log.i("REQUEST", "FAIL")*/
             }
         })
@@ -112,3 +109,5 @@ class TaskFragment : Fragment() {
     }
 
 }
+
+

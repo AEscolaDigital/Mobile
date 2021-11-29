@@ -15,7 +15,7 @@ import retrofit2.Call
 import java.util.*
 
 
-class Dialogtask : AppCompatActivity() {
+class DialogTask : AppCompatActivity() {
 
     lateinit var btn_finalizar:Button
 
@@ -38,13 +38,14 @@ class Dialogtask : AppCompatActivity() {
         edAnexo = findViewById(R.id.ed_anexo)
 
 
-        val task: Task = Task()
-        task.id = 1
-        task.description = "I do not  know"
-        task.attachment = "Vai se ..."
-        task.deliveryDate = Date()
-        task.title = "Consumir API "
-        task.punctuation = 20
+//        val task: Task = Task()
+//        task.id = 1
+//        task.description = "I do not  know"
+//        task.attachment = "Vai se ..."
+//        task.deliveryDate = Date()
+//        task.title = "Consumir API "
+//        task.punctuation = 20
+
 
         btn_finalizar.setOnClickListener{
             Log.i("XPTO", "BATEU NO BOTAO TASK SUBMIT")
