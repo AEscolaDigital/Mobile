@@ -1,5 +1,6 @@
 package com.example.school.fragments
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -9,17 +10,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.Spinner
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.core.view.isInvisible
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
 import com.example.school.adapter.DashboardAdapter
 import com.example.school.api.school.ApiSchool
+import com.example.school.models.Class
 import com.example.school.models.Discipline
 import retrofit2.Call
 import retrofit2.Callback
@@ -70,7 +68,7 @@ class TeamsFragment : Fragment() {
         recyclerViewTurmas.adapter = dashBoardAdapter
 
         btn_criar_disciplina.setOnClickListener {
-            val view = View.inflate(context, R.layout.dialog_displine, null)
+            val view:View = View.inflate(context, R.layout.dialog_displine, null)
 
             val builder = AlertDialog.Builder(context)
             builder.setView(view)
@@ -91,7 +89,7 @@ class TeamsFragment : Fragment() {
             }
 
             image_discipline.setOnClickListener {
-                abrirGaleria()
+                getImageFromGallery()
             }
 
         }
@@ -110,18 +108,7 @@ class TeamsFragment : Fragment() {
 
         //aply a request async and get the response
         call.enqueue(object : Callback<List<Discipline>> {
-            override fun onResponse(
-                call: Call<List<Discipline>>,
-                response: Response<List<Discipline>>
-            ) {
-                /*Log.i("RESPONSE body", response.body().toString())
-                Log.i("RESPONSE", response.message().toString())
-                Log.i("RESPONSE", response.code().toString())
-                Log.i("RESPONSE", response.errorBody().toString())
-                Log.i("RESPONSE", response.isSuccessful.toString())
-                Log.i("RESPONSE", response.headers().toString())
-                Log.i("RESPONSE", response.raw().toString())*/
-
+            override fun onResponse(call: Call<List<Discipline>>,response: Response<List<Discipline>>) {
                 if (response.code() == 200) {
                     dashBoardAdapter.updateListasDisciplina(response.body()!!)
                 }
@@ -132,44 +119,56 @@ class TeamsFragment : Fragment() {
             }
         })
 
+
+        val remoteTwo = ApiSchool.SchoolEndPoint().classesService()
+        val callTwo: Call<Class> = remoteTwo.listClasses("Bearer $jwt")
+
+        callTwo.enqueue(object : Callback<Class> {
+            override fun onResponse(call: Call<Class>, response: Response<Class>) {
+                /*if (response.code() == 200) {
+                    populateSpinner(context, response.body())
+                }*/
+                Log.i("XPTO", "Chamada na API")
+                Log.i("XPTO", response.body().toString())
+                Log.i("XPTO", response.errorBody().toString())
+                Log.i("XPTO", response.code().toString())
+                Log.i("XPTO", response.raw().toString())
+                Log.i("XPTO", "b")
+            }
+
+            override fun onFailure(call: Call<Class>, t: Throwable) {
+                /*Log.i("REQUEST", "FAIL")*/
+                Log.i("XPTO",t.message.toString())
+                Log.i("XPTO",t.cause.toString())
+            }
+        })
+
     }
 
-    @Suppress("DEPRECATION")
-    private fun abrirGaleria() {
-
-        // Chamando a galeria de imagens
-        val intent = Intent(Intent.ACTION_GET_CONTENT)
-
-        // definir qual tipo de conteúdo deverá ser obtido
+    private fun getImageFromGallery() {
+        val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
-
-        // Iniciar a Activity, mas neste caso nós queremos que
-        // esta Activity retorne algo para gente, a imagem
-        this.startActivityForResult(
-            Intent.createChooser(
-                intent,
-                "Escolha uma foto"
-            ),
-            CODE_IMAGE
-        )
+        startActivityForResult(intent, CODE_IMAGE)
     }
 
-    @Suppress("DEPRECATION")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if (requestCode == CODE_IMAGE && resultCode == -1) {
+        if (requestCode == CODE_IMAGE && resultCode == RESULT_OK) {
+            // Pegando a imagem da galeria
+            val imageURI = data!!.data
 
-            // Recuperar a imagem na stream
-            val stream = contentResolver.openInputStream(data!!.data!!)
+            // Pegando a imagem do URI
+            val imageBitmap =
+                BitmapFactory.decodeStream(context?.contentResolver?.openInputStream(imageURI!!))
 
-            // Transformar o resultado emn um BitMap
-            imageBitMap = BitmapFactory.decodeStream(stream)
+            // Setando a imagem no ImageView
+            image_discipline.setImageBitmap(imageBitmap)
 
-            // Colocar a imgaem no ImageView
-            image_discipline.setImageBitmap(imageBitMap)
-
+            // Salvando a imagem no ImageView
+            imageBitMap = imageBitmap
         }
     }
 
 }
+
