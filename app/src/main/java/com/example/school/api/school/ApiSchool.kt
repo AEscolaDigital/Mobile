@@ -1,8 +1,8 @@
 package com.example.school.api.school
 
+import com.example.school.models.Class
 import com.example.school.models.Discipline
 import com.example.school.models.School
-import com.example.school.models.Task
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -28,7 +28,7 @@ class ApiSchool {
 
     interface classes {
         @GET("/classes/1")
-        fun listClasses(@Header("Authorization") token: String): Call<List<Discipline>>
+        fun listClasses(@Header("Authorization") token: String): Call<Class>
 
     }
 
@@ -58,6 +58,10 @@ class ApiSchool {
 
         fun taskService(): Task {
             return service.create(Task::class.java)
+        }
+
+        fun classesService(): classes {
+            return service.create(classes::class.java)
         }
     }
 }

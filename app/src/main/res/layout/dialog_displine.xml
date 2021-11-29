@@ -45,6 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/submit">
 
         <ImageView
+            android:id="@+id/image_discipline"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/ic_person_pin_24" />
