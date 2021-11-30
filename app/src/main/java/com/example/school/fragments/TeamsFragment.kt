@@ -64,11 +64,12 @@ class TeamsFragment : Fragment() {
         //layout of recyclerview, grid two columns
         recyclerViewTurmas.layoutManager = GridLayoutManager(context, 2)
         //LinearLayoutManager(view.context, LinearLayoutManager.VERTICAL, false)
-        //* Definindo a Adapter da RV(RecycleView)
+
+        //* Definindo a Adapter da RV(RecyclerView)
         recyclerViewTurmas.adapter = dashBoardAdapter
 
         btn_criar_disciplina.setOnClickListener {
-            val view:View = View.inflate(context, R.layout.dialog_displine, null)
+            val view: View = View.inflate(context, R.layout.dialog_displine, null)
 
             val builder = AlertDialog.Builder(context)
             builder.setView(view)
@@ -108,7 +109,10 @@ class TeamsFragment : Fragment() {
 
         //aply a request async and get the response
         call.enqueue(object : Callback<List<Discipline>> {
-            override fun onResponse(call: Call<List<Discipline>>,response: Response<List<Discipline>>) {
+            override fun onResponse(
+                call: Call<List<Discipline>>,
+                response: Response<List<Discipline>>
+            ) {
                 if (response.code() == 200) {
                     dashBoardAdapter.updateListasDisciplina(response.body()!!)
                 }
@@ -118,7 +122,6 @@ class TeamsFragment : Fragment() {
                 /*Log.i("REQUEST", "FAIL")*/
             }
         })
-
 
         val remoteTwo = ApiSchool.SchoolEndPoint().classesService()
         val callTwo: Call<Class> = remoteTwo.listClasses("Bearer $jwt")
@@ -138,8 +141,8 @@ class TeamsFragment : Fragment() {
 
             override fun onFailure(call: Call<Class>, t: Throwable) {
                 /*Log.i("REQUEST", "FAIL")*/
-                Log.i("XPTO",t.message.toString())
-                Log.i("XPTO",t.cause.toString())
+                Log.i("XPTO", t.message.toString())
+                Log.i("XPTO", t.cause.toString())
             }
         })
 

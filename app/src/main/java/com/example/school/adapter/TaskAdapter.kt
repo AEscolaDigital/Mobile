@@ -13,7 +13,8 @@ import com.example.school.R
 import com.example.school.api.school.ApiSchool
 import com.example.school.models.Task
 
-class TaskAdapter(var context: Context) : RecyclerView.Adapter<TaskAdapter.DashViewHolder>() {
+class TaskAdapter(var context: Context) :
+    RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     private var listaTask = emptyList<Task>()
 
@@ -29,23 +30,24 @@ class TaskAdapter(var context: Context) : RecyclerView.Adapter<TaskAdapter.DashV
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): TaskAdapter.DashViewHolder {
+    ): TaskViewHolder {
 
-        val view = LayoutInflater.from(context).inflate(R.layout.dialog_task, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.recycler_view_task, parent, false)
 
-        return DashViewHolder(view)
+        return TaskViewHolder(view)
     }
 
 
     //Constroi a holder na tela e manda a posição que for criar
-    override fun onBindViewHolder(holder: TaskAdapter.DashViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: TaskAdapter.TaskViewHolder, position: Int) {
         val task = listaTask[position]
 
-        holder.tv_name_task.text = task.title
-        holder.ed_description.text = task.description
+//        holder.tv_name_task.text = task.title
+/*        holder.ed_description.text = task.description
         holder.ed_deliveryDate.text = task.deliveryDate.toString()
         holder.ed_punctuation.text = task.punctuation.toString()
         holder.ed_attachment.text = task.attachment
+*/
 
     }
 
@@ -56,7 +58,7 @@ class TaskAdapter(var context: Context) : RecyclerView.Adapter<TaskAdapter.DashV
 
 
     //Cria a Holder com os elementos passados
-    class DashViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val tv_name_task = itemView.findViewById<TextView>(R.id.tv_name_task)
         val ed_description = itemView.findViewById<TextView>(R.id.ed_descricao_task)
