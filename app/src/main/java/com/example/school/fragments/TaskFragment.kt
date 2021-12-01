@@ -17,6 +17,7 @@ import com.example.school.adapter.TaskAdapter
 import com.example.school.api.school.ApiSchool
 import com.example.school.models.Discipline
 import com.example.school.models.Task
+import com.example.school.models.TaskList
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -73,20 +74,21 @@ class TaskFragment : Fragment() {
 
         //call the api for populate task of studant
         val remote = ApiSchool.SchoolEndPoint().taskService()
-        val call: Call<List<Task>> = remote.listTask("Bearer $jwt")
+        val call: Call<List<TaskList>> = remote.listTask("Bearer $jwt")
 
         //aply a request async and get the response
 
-        call.enqueue(object : Callback<List<Task>> {
-            override fun onResponse(call: Call<List<Task>>, response: Response<List<Task>>) {
+        call.enqueue(object : Callback<List<TaskList>> {
+            override fun onResponse(call: Call<List<TaskList>>, response: Response<List<TaskList>>) {
+                Log.i("RESPONSE body", response.body().toString())
+                Log.i("RESPONSE code", response.code().toString())
 
                 if (response.code() == 200) {
                     Log.i("XPTO *******", response.body().toString())
                     //taskAdapter.updateListaTask(response.body()!!)
                 }
-//                Log.i("RESPONSE body", response.body().toString())
 //                Log.i("RESPONSE", response.message().toString())
-//                Log.i("RESPONSE", response.code().toString())
+
 //                Log.i("RESPONSE", response.errorBody().toString())
 //                Log.i("RESPONSE", response.isSuccessful.toString())
 //                Log.i("RESPONSE", response.headers().toString())
@@ -94,7 +96,7 @@ class TaskFragment : Fragment() {
 
             }
 
-            override fun onFailure(call: Call<List<Task>>, t: Throwable) {
+            override fun onFailure(call: Call<List<TaskList>>, t: Throwable) {
                 /*Log.i("REQUEST", "FAIL")*/
             }
         })
