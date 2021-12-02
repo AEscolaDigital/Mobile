@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
 import com.example.school.api.school.ApiSchool
@@ -44,6 +45,17 @@ class TaskAdapter(var context: Context) :
         val task = listaTask[position]
 
         holder.tv_name_task.text = task.name
+        holder.tv_name_task.setOnClickListener {
+            val view: View = View.inflate(context, R.layout.dialog_displine, null)
+
+            val builder = AlertDialog.Builder(context)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        }
 /*        holder.ed_description.text = task.date_delivery
         holder.ed_deliveryDate.text = task.deliveryDate.toString()
         holder.ed_punctuation.text = task.punctuation.toString()

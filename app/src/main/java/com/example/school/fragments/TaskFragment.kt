@@ -85,7 +85,7 @@ class TaskFragment : Fragment() {
 
                 if (response.code() == 200) {
                     Log.i("XPTO *******", response.body().toString())
-                    //taskAdapter.updateListaTask(response.body()!!)
+                    taskAdapter.updateListaTask(response.body()!!)
                 }
 //                Log.i("RESPONSE", response.message().toString())
 
