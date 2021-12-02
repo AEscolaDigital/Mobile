@@ -29,6 +29,8 @@
         android:layout_marginEnd="30dp"
         android:layout_marginTop="30dp"
         android:text="Finalizar"
+        android:textColor="@color/white"
+        android:background="@drawable/button_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +48,7 @@
             android:id="@+id/image_discipline"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/perfil" />
+            android:background="@drawable/ic_person_pin_24" />
 
     </androidx.cardview.widget.CardView>
 

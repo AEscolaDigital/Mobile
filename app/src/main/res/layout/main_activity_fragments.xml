@@ -39,9 +39,9 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:paddingStart="20dp"
+
             android:scaleType="centerCrop"
-            android:src="@drawable/perfil" />
+            android:src="@drawable/ic_user_perfil_24" />
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

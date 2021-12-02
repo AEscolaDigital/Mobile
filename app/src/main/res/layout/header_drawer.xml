@@ -12,7 +12,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="80dp"
             android:layout_height="80dp"
-
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
             app:cardCornerRadius="40dp">
 
@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
+
                 android:background="#ededed"
                 android:src="@drawable/logo_educ_tec" />
         </androidx.cardview.widget.CardView>
