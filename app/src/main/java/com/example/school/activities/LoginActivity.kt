@@ -80,6 +80,8 @@ class LoginActivity : AppCompatActivity() {
             call.enqueue(object : Callback<Login> {
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
 
+                    Log.i("XPTO LOGIN", response.body()?.role.toString())
+
                     val user = response
                     if (user.code() == 403) {
                         return Toast.makeText(
@@ -105,7 +107,7 @@ class LoginActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<Login>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao fazer login!", Toast.LENGTH_LONG)
                         .show()
-                    Log.i("XPTO", error.message.toString())
+                    Log.i("XPTO LOGIN", error.message.toString())
                 }
             })
 
