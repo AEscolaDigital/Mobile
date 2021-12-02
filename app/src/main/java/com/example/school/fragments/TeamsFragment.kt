@@ -68,6 +68,13 @@ class TeamsFragment : Fragment() {
         //* Definindo a Adapter da RV(RecyclerView)
         recyclerViewTurmas.adapter = dashBoardAdapter
 
+
+
+
+        //Set btn_criar_disciplina INVISIBLE
+        //btn_criar_disciplina.setVisibility(View.INVISIBLE)
+
+
         btn_criar_disciplina.setOnClickListener {
             val view: View = View.inflate(context, R.layout.dialog_displine, null)
 

@@ -46,7 +46,7 @@ class TaskAdapter(var context: Context) :
 
         holder.tv_name_task.text = task.name
         holder.tv_name_task.setOnClickListener {
-            val view: View = View.inflate(context, R.layout.dialog_displine, null)
+            val view: View = View.inflate(context, R.layout.fragment_view_task, null)
 
             val builder = AlertDialog.Builder(context)
             builder.setView(view)
