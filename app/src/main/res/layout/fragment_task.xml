@@ -64,17 +64,15 @@
 
             <Button
                 android:id="@+id/btn_add_task"
-                android:layout_width="120dp"
-                android:layout_height="30dp"
+                android:layout_width="125dp"
+                android:layout_height="35dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="20dp"
 
                 android:background="@drawable/btn_criar_disciplina"
-                android:drawableStart="@drawable/note_add_24"
-                android:drawableTint="@color/iconColor"
                 android:text="Adicionar Tarefa"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/textColor"
+                android:textColor="@color/white"
                 android:textSize="12dp"
                 app:layout_constraintBottom_toTopOf="@+id/btn_concluido"
                 app:layout_constraintEnd_toEndOf="parent"
