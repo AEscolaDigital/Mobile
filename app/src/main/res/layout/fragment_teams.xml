@@ -28,18 +28,18 @@
 
         <Button
             android:id="@+id/btn_criar_disciplina"
-            android:layout_width="120dp"
-            android:layout_height="30dp"
+            android:layout_width="125dp"
+            android:layout_height="35dp"
             android:layout_marginEnd="20dp"
             android:paddingStart="5dp"
             android:background="@drawable/btn_criar_disciplina"
             android:drawableStart="@drawable/ic_baseline_group_add_24"
             android:drawableTint="@color/iconColor"
+            android:textColor="@color/white"
             android:gravity="center"
             android:text="Criar Turma"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/textColor"
-            android:textSize="12dp"
+            android:textSize="13dp"
             app:layout_constraintBottom_toBottomOf="@+id/tv_suasTurmas"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_suasTurmas" />
@@ -56,7 +56,8 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_criar_disciplina"
-            tools:listitem="@layout/recycler_view_teams" />
+            tools:listitem="@layout/recycler_view_teams"
+            android:layout_marginBottom="10dp"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

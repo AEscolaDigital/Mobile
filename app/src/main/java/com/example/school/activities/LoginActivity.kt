@@ -80,6 +80,8 @@ class LoginActivity : AppCompatActivity() {
             call.enqueue(object : Callback<Login> {
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
 
+                    Log.i("XPTO LOGIN", response.body()?.role.toString())
+
                     val user = response
                     if (user.code() == 403) {
                         return Toast.makeText(
@@ -95,6 +97,7 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("JWT", user.body()?.token.toString())
                         editor.putString("EMAIL", user.body()?.user?.email.toString())
                         editor.putString("NAME", user.body()?.user?.name.toString())
+                        editor.putString("ROLE", user.body()?.role.toString())
                         editor.apply()
 
                         openDashboard()

@@ -101,6 +101,9 @@ class TeamsFragment : Fragment() {
         //call the shared preferences school and get jwt
         val sharedPreferences = context.getSharedPreferences("school", 0)
         val jwt = sharedPreferences.getString("JWT", "teste de chamada saida vazia")
+        val role = sharedPreferences.getString("ROLE", "")
+
+
 
         //call the api for populate disciplines of studant
         val remote = ApiSchool.SchoolEndPoint().dashboardService()
@@ -128,18 +131,18 @@ class TeamsFragment : Fragment() {
                 /*if (response.code() == 200) {
                     populateSpinner(context, response.body())
                 }*/
-                Log.i("XPTO", "Chamada na API")
+                /*Log.i("XPTO", "Chamada na API")
                 Log.i("XPTO", response.body().toString())
                 Log.i("XPTO", response.errorBody().toString())
                 Log.i("XPTO", response.code().toString())
                 Log.i("XPTO", response.raw().toString())
-                Log.i("XPTO", "b")
+                Log.i("XPTO", "b")*/
             }
 
             override fun onFailure(call: Call<Class>, t: Throwable) {
                 /*Log.i("REQUEST", "FAIL")*/
-                Log.i("XPTO",t.message.toString())
-                Log.i("XPTO",t.cause.toString())
+                /*Log.i("XPTO",t.message.toString())
+                Log.i("XPTO",t.cause.toString())*/
             }
         })
 

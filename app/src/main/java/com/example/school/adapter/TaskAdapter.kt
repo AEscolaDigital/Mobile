@@ -46,7 +46,7 @@ class TaskAdapter(var context: Context) :
 
         holder.tv_name_task.text = task.name
         holder.tv_name_task.setOnClickListener {
-            val view: View = View.inflate(context, R.layout.fragment_task, null)
+            val view: View = View.inflate(context, R.layout.dialog_task, null)
 
             val builder = AlertDialog.Builder(context)
             builder.setView(view)
@@ -56,11 +56,6 @@ class TaskAdapter(var context: Context) :
 
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
         }
-/*        holder.ed_description.text = task.date_delivery
-        holder.ed_deliveryDate.text = task.deliveryDate.toString()
-        holder.ed_punctuation.text = task.punctuation.toString()
-        holder.ed_attachment.text = task.attachment*/
-
 
     }
 
@@ -72,12 +67,7 @@ class TaskAdapter(var context: Context) :
 
     //Cria a Holder com os elementos passados
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val tv_name_task = itemView.findViewById<TextView>(R.id.tv_name_task)
- /*       val ed_description = itemView.findViewById<TextView>(R.id.ed_descricao_task)
-        val ed_deliveryDate = itemView.findViewById<TextView>(R.id.ed_data)
-        val ed_punctuation = itemView.findViewById<TextView>(R.id.ed_pontuacao)
-        val ed_attachment = itemView.findViewById<TextView>(R.id.ed_anexo)*/
 
     }
 
