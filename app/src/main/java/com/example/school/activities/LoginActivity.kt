@@ -108,7 +108,12 @@ class LoginActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<Login>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao fazer login!", Toast.LENGTH_LONG)
                         .show()
-                    Log.i("XPTO", error.message.toString())
+                    //Log.i("XPTO", error.message.toString())
+                    //var error = error.message;
+                    Log.i("XPTO login1", error.cause.toString())
+                    Log.i("XPTO login2", error.localizedMessage.toString())
+                    Log.i("XPTO login3", error.suppressed.toString())
+                    Log.i("XPTO login4", error.message.toString())
                 }
             })
 
