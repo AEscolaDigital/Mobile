@@ -33,7 +33,7 @@ class ApiSchool {
     }
 
     interface Task {
-        @GET("/tasks/list/2")
+        @GET("/tasks/list/1")
         fun listTask(@Header("Authorization") token: String): Call<List<com.example.school.models.TaskList>>
     }
 

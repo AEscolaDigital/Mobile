@@ -34,89 +34,84 @@
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_baseline_remove_24"
                     android:layout_gravity="center|top">
-
                 </ImageView>
-
-                
             </FrameLayout>
-
-
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 
-        <!--            <TextView-->
-<!--                android:id="@+id/arrow_back"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_margin="20dp"-->
-<!--                android:drawableStart="@drawable/ic_baseline_arrow_circle_left_24"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent" />-->
+            <TextView
+                android:id="@+id/arrow_back"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="20dp"
+                android:drawableStart="@drawable/ic_baseline_arrow_circle_left_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_titulo_task"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="30dp"-->
-<!--                android:gravity="center"-->
-<!--                android:text="Fazer consumo da API (api cep)"-->
-<!--                android:textColor="@color/blue"-->
-<!--                android:textSize="20dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/arrow_back" />-->
+            <TextView
+                android:id="@+id/tv_titulo_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="Fazer consumo da API (api cep)"
+                android:textColor="@color/blue"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/arrow_back" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/ed_comments"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="10dp"-->
-<!--                android:layout_marginTop="50dp"-->
-<!--                android:layout_marginEnd="10dp"-->
-<!--                android:backgroundTint="@color/blue"-->
-<!--                android:drawableStart="@drawable/ic_comments_24"-->
-<!--                android:drawablePadding="10dp"-->
-<!--                android:drawableTint="@color/blue"-->
-<!--                android:hint="Comentários"-->
-<!--                android:inputType="text"-->
-<!--                android:paddingStart="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tv_titulo_task" />-->
+            <EditText
+                android:id="@+id/ed_comments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="10dp"
+                android:backgroundTint="@color/blue"
+                android:drawableStart="@drawable/ic_comments_24"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/blue"
+                android:hint="Comentários"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_titulo_task" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/tv_description_task"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="15dp"-->
-<!--                android:text="Consunte os videos, caso tenha alguma dúvida, qualquer outra possivel dúvida, deixe nos comentários, obrigado e boa sorte!!!!."-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/ed_comments" />-->
+            <TextView
+                android:id="@+id/tv_description_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:text="Consunte os videos, caso tenha alguma dúvida, qualquer outra possivel dúvida, deixe nos comentários, obrigado e boa sorte!!!!."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ed_comments" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/anexo"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_margin="20dp"-->
-<!--                android:text="Anexos"-->
-<!--                android:textColor="@color/black"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/tv_description_task" />-->
+            <TextView
+                android:id="@+id/anexo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Anexos"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_description_task" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/ed_anexo_task"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="30dp"-->
-<!--                android:layout_margin="20dp"-->
-<!--                android:background="#EDEDED"-->
-<!--                android:gravity="center"-->
-<!--                android:hint="Aqui vai o link do anexo"-->
-<!--                android:inputType="text"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@+id/anexo" />-->
+            <TextView
+                android:id="@+id/ed_anexo_task"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="20dp"
+                android:background="#EDEDED"
+                android:gravity="center"
+                android:hint="Aqui vai o link do anexo"
+                android:inputType="text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/anexo" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
