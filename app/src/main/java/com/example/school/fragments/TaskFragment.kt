@@ -27,6 +27,7 @@ class TaskFragment : Fragment() {
     private lateinit var taskAdapter: TaskAdapter
     private lateinit var recyclerViewTask: RecyclerView
 
+
     lateinit var btn_add_task: Button
 
     lateinit var btn_finalizar: Button
@@ -39,7 +40,10 @@ class TaskFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // setContentView(R.layout.activity_teams)
+         //setContentView(R.layout.activity_teams)
+
+
+
     }
 
     override fun onCreateView(
