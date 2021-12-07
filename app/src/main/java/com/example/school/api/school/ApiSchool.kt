@@ -10,7 +10,11 @@ import retrofit2.http.*
 
 
 class ApiSchool {
-
+    //How to set a body and receive another
+    /*interface ApiService {
+        @POST("schools")
+        fun register(@Body body: School): Call<Discipline>
+    }*/
     interface ApiService {
         @POST("schools")
         fun register(@Body body: School): Call<School>

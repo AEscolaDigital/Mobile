@@ -52,7 +52,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_school_registration)
 
-
         supportActionBar!!.title = "Cadastro de escola"
         supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_background))
 
@@ -63,7 +62,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         textInputLayoutCNPJ = findViewById(R.id.text_input_layout_cnpj)
         textInputLayoutNumber = findViewById(R.id.text_input_layout_number)
         textInputLayoutEmail = findViewById(R.id.text_input_layout_email)
-
 
         edit_name = findViewById(R.id.text_input_edit_text_name)
         editTextPhone = findViewById(R.id.text_input_edit_text_phone)
@@ -79,7 +77,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         editTextComplement = findViewById(R.id.text_input_edit_complement)
         editTextEmail = findViewById(R.id.edit_text_email)
         editTextPassword = findViewById(R.id.edit_text_password)
-
 
         editTextCep.setOnFocusChangeListener { v, hasFocus ->
 
@@ -113,12 +110,10 @@ class SchoolRegistrationActivity : AppCompatActivity() {
                 MaskFormatUtil.FORMAT_CEP
             )
         )
-
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_create_school, menu)
         return true
@@ -219,6 +214,7 @@ class SchoolRegistrationActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Escola cadastrada com sucesso!", Toast.LENGTH_LONG).show()
                     /*Log.i("XPTO", "Escola cadastrada com sucesso")*/
                     Log.i("XPTO", response.message().toString())
+                    Log.i("XPTO", response.body().toString())
 
                     openLoginActivity()
                     

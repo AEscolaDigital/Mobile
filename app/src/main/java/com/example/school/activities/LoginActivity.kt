@@ -50,6 +50,9 @@ class LoginActivity : AppCompatActivity() {
             openCreateNewUser()
         }
 
+        //set a default button select in radio button
+        radio_type_user.check(R.id.radio_aluno_professor)
+
         radio_type_user.setOnCheckedChangeListener { group, checkedId ->
             if (checkedId == R.id.radio_aluno_professor) {
                 roleUser = "ROLE_USER"
