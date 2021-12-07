@@ -95,14 +95,17 @@ class TeamsFragment : Fragment() {
         }
 
 
-        //Set btn_criar_disciplina INVISIBLE
-        //btn_criar_disciplina.setVisibility(View.INVISIBLE)
+
 
         //call the shared preferences school and get jwt
         val sharedPreferences = context.getSharedPreferences("school", 0)
         val jwt = sharedPreferences.getString("JWT", "teste de chamada saida vazia")
         val role = sharedPreferences.getString("ROLE", "")
 
+        if(role == "ROLE_USER"){
+            //Set btn_criar_disciplina INVISIBLE
+            btn_criar_disciplina.setVisibility(View.INVISIBLE)
+        }
 
 
         //call the api for populate disciplines of studant
@@ -114,6 +117,8 @@ class TeamsFragment : Fragment() {
             override fun onResponse(call: Call<List<Discipline>>,response: Response<List<Discipline>>) {
                 if (response.code() == 200) {
                     dashBoardAdapter.updateListasDisciplina(response.body()!!)
+                }else{
+                   //TODO: error to load  disciplines
                 }
             }
 
@@ -137,9 +142,13 @@ class TeamsFragment : Fragment() {
                 Log.i("XPTO", response.code().toString())
                 Log.i("XPTO", response.raw().toString())
                 Log.i("XPTO", "b")*/
+                Log.i("XPTO spinner", response.body().toString())
+                Log.i("XPTO spinner", response.body()?.rows.toString())
+                Log.i("XPTO spinner code", response.code().toString())
             }
 
             override fun onFailure(call: Call<Class>, t: Throwable) {
+                Log.i("XPTO snpinner" , t.message.toString())
                 /*Log.i("REQUEST", "FAIL")*/
                 /*Log.i("XPTO",t.message.toString())
                 Log.i("XPTO",t.cause.toString())*/

@@ -33,14 +33,14 @@ class ApiSchool {
     }
 
     interface Task {
-        @GET("/tasks/list/2")
+        @GET("/tasks/list/1")
         fun listTask(@Header("Authorization") token: String): Call<List<com.example.school.models.TaskList>>
     }
 
     class SchoolEndPoint {
 
-        //val url = "https://educ-tec-back-end.herokuapp.com/"
-        val url = "http://10.0.0.104:3333/"
+        val url = "https://educ-tec-back-end.herokuapp.com/"
+        //val url = "http://10.0.0.104:3333/"
 
         val service =
             Retrofit.Builder().baseUrl(url).addConverterFactory(GsonConverterFactory.create())

@@ -217,8 +217,11 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             call.enqueue(object : Callback<School> {
                 override fun onResponse(call: Call<School>, response: Response<School>) {
                     Toast.makeText(applicationContext, "Escola cadastrada com sucesso!", Toast.LENGTH_LONG).show()
-                    /*Log.i("XPTO", "Escola cadastrada com sucesso")
-                    Log.i("XPTO", response.message().toString())*/
+                    /*Log.i("XPTO", "Escola cadastrada com sucesso")*/
+                    Log.i("XPTO", response.message().toString())
+
+                    openLoginActivity()
+                    
                 }
 
                 override fun onFailure(call: Call<School>, error: Throwable) {
@@ -234,6 +237,8 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
