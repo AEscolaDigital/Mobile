@@ -23,7 +23,6 @@
         <activity android:name=".activities.SchoolRegistrationActivity" />
         <activity android:name=".activities.MainActivity" />
 
-
         <activity android:name=".activities.ViewTaskActivity" />
 
     </application>

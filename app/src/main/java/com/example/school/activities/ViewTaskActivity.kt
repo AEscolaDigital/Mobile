@@ -34,7 +34,7 @@ class ViewTaskActivity : AppCompatActivity() {
 
 
         BottomSheetBehavior.from(frameLayout).apply {
-            peekHeight=200
+            peekHeight=400
             this.state=BottomSheetBehavior.STATE_COLLAPSED
         }
 

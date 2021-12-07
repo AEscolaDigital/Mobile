@@ -39,33 +39,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/arrow_back" />
 
-    <EditText
-        android:id="@+id/ed_comments"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/blue"
-        android:drawableStart="@drawable/ic_comments_24"
-        android:drawablePadding="10dp"
-        android:drawableTint="@color/blue"
-        android:hint="Comentários"
-        android:inputType="text"
-        android:paddingStart="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_titulo_task" />
 
     <TextView
         android:id="@+id/tv_description_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="30dp"
         android:text="Consunte os videos, caso tenha alguma dúvida, qualquer outra possivel dúvida, deixe nos comentários, obrigado e boa sorte!!!!."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_comments" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_titulo_task" />
 
     <TextView
         android:id="@+id/anexo"
@@ -98,7 +81,7 @@
     <FrameLayout
         android:id="@+id/frameLayout_bottomsheet"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="450dp"
         android:background="@drawable/rounder"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
@@ -106,16 +89,81 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <TextView
+                android:id="@+id/tv_seu_trabalho"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="30dp"
+                android:paddingStart="20dp"
+                android:paddingBottom="20dp"
+                android:text="Seu Trabalho"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_data_entrega"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/black"
+                android:text="Data de Entrega"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="10/12/2021"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_data_entrega" />
+
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btn_adicionar_tarefa"
                 android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:background="@drawable/input_border"
-                android:backgroundTint="@color/white"
-                android:text="Terminei"
+                android:layout_height="45dp"
+                android:text="Adicionar Tarefa"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_seu_trabalho" />
+
+            <TextView
+                android:id="@+id/ed_coment"
+                android:layout_width="320dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp"
+                android:drawableStart="@drawable/ic_comments_24"
+                android:drawableTint="@color/blue"
+                android:hint="Comentários do seu professor(a)"
+                android:background="@drawable/input_disciplina_border"
+                android:drawablePadding="5dp"
+                android:paddingBottom="110dp"
+                android:paddingTop="15dp"
+                android:paddingStart="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_concluido" />
+
+            <Button
+                android:id="@+id/button_concluido"
+                android:layout_width="300dp"
+                android:layout_height="45dp"
+                android:backgroundTint="@color/white"
+                android:text="Concluido"
+                android:layout_marginTop="10dp"
+                android:textAllCaps="false"
+                android:textColor="@color/blue"
+                android:theme="@style/CardView.Light"
+                app:layout_constraintEnd_toEndOf="@+id/btn_adicionar_tarefa"
+                app:layout_constraintStart_toStartOf="@+id/btn_adicionar_tarefa"
+                app:layout_constraintTop_toBottomOf="@+id/btn_adicionar_tarefa" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -125,9 +173,9 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_baseline_remove_24"
                 android:tint="@color/blue"
-                app:layout_constraintEnd_toEndOf="@+id/button2"
-                app:layout_constraintStart_toStartOf="@+id/button2"
-                app:layout_constraintTop_toTopOf="parent"></ImageView>
+                app:layout_constraintEnd_toEndOf="@+id/btn_adicionar_tarefa"
+                app:layout_constraintStart_toStartOf="@+id/btn_adicionar_tarefa"
+                app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </FrameLayout>
