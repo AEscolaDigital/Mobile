@@ -1,5 +1,10 @@
 package com.example.school.adapter
 
-class GradesAdapter {
-    
-}
+import android.content.Context
+import androidx.recyclerview.widget.RecyclerView
+
+//class GradesAdapter (var context: Context) : RecyclerView.Adapter<GradesAdapter.GradesViewHolder>(){
+//
+//    private var ListGrades = emptyList<>()
+
+//}
