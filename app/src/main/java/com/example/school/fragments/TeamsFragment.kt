@@ -92,6 +92,36 @@ class TeamsFragment : Fragment() {
                 getImageFromGallery()
             }
 
+            val sharedPreferences = context.getSharedPreferences("school", 0)
+            val jwt = sharedPreferences.getString("JWT", "teste de chamada saida vazia")
+            val role = sharedPreferences.getString("ROLE", "")
+
+             val remoteTwo = ApiSchool.SchoolEndPoint().classesService()
+            val callTwo: Call<Class> = remoteTwo.listClasses("Bearer $jwt")
+
+            callTwo.enqueue(object : Callback<Class> {
+                override fun onResponse(call: Call<Class>, response: Response<Class>) {
+                    /*if (response.code() == 200) {
+                        
+                    }*/
+                    var classList = response.body()?.rows
+                    //populate the spinner_class using classList
+                    var classNames = arrayOfNulls<String>(classList!!.size)
+                    for (i in 0 until classList.size) {
+                        classNames[i] = classList[i].sigla
+                    }
+                    val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, classNames)
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    spinner_class.adapter = adapter
+                    
+                }
+
+                override fun onFailure(call: Call<Class>, t: Throwable) {
+                    Log.i("XPTO snpinner" , t.message.toString())
+                }
+            })
+            
+
         }
 
 
@@ -128,33 +158,6 @@ class TeamsFragment : Fragment() {
         })
 
 
-        val remoteTwo = ApiSchool.SchoolEndPoint().classesService()
-        val callTwo: Call<Class> = remoteTwo.listClasses("Bearer $jwt")
-
-        callTwo.enqueue(object : Callback<Class> {
-            override fun onResponse(call: Call<Class>, response: Response<Class>) {
-                /*if (response.code() == 200) {
-                    populateSpinner(context, response.body())
-                }*/
-                /*Log.i("XPTO", "Chamada na API")
-                Log.i("XPTO", response.body().toString())
-                Log.i("XPTO", response.errorBody().toString())
-                Log.i("XPTO", response.code().toString())
-                Log.i("XPTO", response.raw().toString())
-                Log.i("XPTO", "b")*/
-                Log.i("XPTO spinner", response.body().toString())
-                Log.i("XPTO spinner", response.body()?.rows.toString())
-                Log.i("XPTO spinner code", response.code().toString())
-            }
-
-            override fun onFailure(call: Call<Class>, t: Throwable) {
-                Log.i("XPTO snpinner" , t.message.toString())
-                /*Log.i("REQUEST", "FAIL")*/
-                /*Log.i("XPTO",t.message.toString())
-                Log.i("XPTO",t.cause.toString())*/
-            }
-        })
-
     }
 
     private fun getImageFromGallery() {
@@ -162,7 +165,7 @@ class TeamsFragment : Fragment() {
         intent.type = "image/*"
         startActivityForResult(intent, CODE_IMAGE)
     }
-
+  
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
