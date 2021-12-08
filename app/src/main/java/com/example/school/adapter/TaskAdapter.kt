@@ -2,22 +2,14 @@ package com.example.school.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AlertDialogLayout
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
-import com.example.school.activities.MainActivity
 import com.example.school.activities.ViewTaskActivity
-import com.example.school.api.school.ApiSchool
-import com.example.school.models.Task
 import com.example.school.models.TaskList
 
 class TaskAdapter(var context: Context) :

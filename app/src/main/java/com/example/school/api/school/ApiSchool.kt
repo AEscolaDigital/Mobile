@@ -34,7 +34,6 @@ class ApiSchool {
     interface classes {
         @GET("/classes/1")
         fun listClasses(@Header("Authorization") token: String): Call<Class>
-
     }
 
     interface Task {

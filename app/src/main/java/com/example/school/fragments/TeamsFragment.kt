@@ -19,6 +19,7 @@ import com.example.school.adapter.DashboardAdapter
 import com.example.school.api.school.ApiSchool
 import com.example.school.models.Class
 import com.example.school.models.Discipline
+import com.example.school.models.classe
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,6 +39,7 @@ class TeamsFragment : Fragment() {
 
     //Consts
     val CODE_IMAGE = 100
+    var lista = emptyList<classe>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,10 +85,17 @@ class TeamsFragment : Fragment() {
             spinner_class = view.findViewById(R.id.spinner_class)
             image_discipline = view.findViewById(R.id.image_discipline)
 
+            var classList:List<classe>
+
 
             submit.setOnClickListener {
                 Log.i("XPTO", "criar disciplinas")
+                var comparableList = lista
+                var position = spinner_class.selectedItemPosition
+                var classId = lista[position]
+
             }
+
 
             image_discipline.setOnClickListener {
                 getImageFromGallery()
@@ -96,16 +105,19 @@ class TeamsFragment : Fragment() {
             val jwt = sharedPreferences.getString("JWT", "teste de chamada saida vazia")
             val role = sharedPreferences.getString("ROLE", "")
 
-             val remoteTwo = ApiSchool.SchoolEndPoint().classesService()
+            val remoteTwo = ApiSchool.SchoolEndPoint().classesService()
             val callTwo: Call<Class> = remoteTwo.listClasses("Bearer $jwt")
+
 
             callTwo.enqueue(object : Callback<Class> {
                 override fun onResponse(call: Call<Class>, response: Response<Class>) {
                     /*if (response.code() == 200) {
-                        
+
                     }*/
-                    var classList = response.body()?.rows
-                    //populate the spinner_class using classList
+                    classList = response.body()?.rows!!
+
+                    lista = classList
+
                     var classNames = arrayOfNulls<String>(classList!!.size)
                     for (i in 0 until classList.size) {
                         classNames[i] = classList[i].sigla
@@ -113,18 +125,18 @@ class TeamsFragment : Fragment() {
                     val adapter = ArrayAdapter(context, android.R.layout.simple_spinner_item, classNames)
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                     spinner_class.adapter = adapter
-                    
+
                 }
 
                 override fun onFailure(call: Call<Class>, t: Throwable) {
                     Log.i("XPTO snpinner" , t.message.toString())
                 }
             })
-            
+
+
+
 
         }
-
-
 
 
         //call the shared preferences school and get jwt
