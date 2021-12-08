@@ -3,6 +3,7 @@ package com.example.school.api.school
 import com.example.school.models.Class
 import com.example.school.models.Discipline
 import com.example.school.models.School
+import com.example.school.models.schoolRegisterResponse
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,7 +18,7 @@ class ApiSchool {
     }*/
     interface ApiService {
         @POST("schools")
-        fun register(@Body body: School): Call<School>
+        fun register(@Body body: School): Call<schoolRegisterResponse>
     }
 
     interface Sessions {

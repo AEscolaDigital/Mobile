@@ -15,6 +15,7 @@ import com.example.school.models.Cep
 import com.example.school.models.Adress
 import com.example.school.api.school.ApiSchool
 import com.example.school.models.School
+import com.example.school.models.schoolRegisterResponse
 import com.example.school.utlis.MaskFormatUtil
 import com.google.android.material.textfield.TextInputLayout
 import retrofit2.Call
@@ -207,23 +208,24 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             val school: School = School(name,phone, companyName, cnpj, school_size, adress,email, password)
 
             val remote = ApiSchool.SchoolEndPoint().getService()
-            val call: Call<School> = remote.register(school)
+            val call: Call<schoolRegisterResponse> = remote.register(school)
 
-            call.enqueue(object : Callback<School> {
-                override fun onResponse(call: Call<School>, response: Response<School>) {
+            call.enqueue(object : Callback<schoolRegisterResponse> {
+                override fun onResponse(call: Call<schoolRegisterResponse>, response: Response<schoolRegisterResponse>) {
                     Toast.makeText(applicationContext, "Escola cadastrada com sucesso!", Toast.LENGTH_LONG).show()
                     /*Log.i("XPTO", "Escola cadastrada com sucesso")*/
                     Log.i("XPTO", response.message().toString())
                     Log.i("XPTO", response.body().toString())
+                    Log.i("XPTO", response.code().toString())
 
-                    openLoginActivity()
+                    //openLoginActivity()
                     
                 }
 
-                override fun onFailure(call: Call<School>, error: Throwable) {
+                override fun onFailure(call: Call<schoolRegisterResponse>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
-                    /*Log.i("XPTO", error.message.toString())
-                    Log.i("XPTO", "Erro ao cadastrar escola")*/
+                    Log.i("XPTO", error.message.toString())
+                    Log.i("XPTO", "Erro ao cadastrar escola")
                 }
             })
         }
