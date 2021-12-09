@@ -22,7 +22,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     lateinit var escolher_foto_perfil : TextView
-    lateinit var perfil_usuario: ImageView
+    lateinit var perfil_usuario : ImageView
     var imageBitMap: Bitmap? = null
 
     lateinit var bottom_navigation: BottomNavigationView
@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
     //Consts
     val CODE_IMAGE = 100
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity_fragments)
@@ -44,7 +43,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         perfil_usuario = findViewById(R.id.perfil_usuario)
-        escolher_foto_perfil = findViewById(R.id.escolher_foto_perfil)
 
         bottom_navigation = findViewById(R.id.navegation_bottom)
         //set bottom navigation default item selected
@@ -74,40 +72,22 @@ class MainActivity : AppCompatActivity() {
 
 
         perfil_usuario.setOnClickListener{
-            val view = View.inflate(this, R.layout.dialog_perfil, null)
+            val view = View.inflate(this,R.layout.dialog_perfil, null)
 
             val builder = AlertDialog.Builder(this)
             builder.setView(view)
 
             val dialog = builder.create()
             dialog.show()
+
             dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
+            escolher_foto_perfil = findViewById(R.id.escolher_foto_perfil)
 
             escolher_foto_perfil.setOnClickListener {
-                
-            }
-
-
-        }
-
-
-    // Alert Dialog com a função de pegar foto da galeria
-
-        fun dialogImagem() {
-            val alert = AlertDialog.Builder(this)
-            alert.setTitle("ALterar Foto")
-            alert.setMessage("Você deseja altera sua foto de perfil ?")
-            alert.setPositiveButton("Sim", { dialogInterface: DialogInterface, i: Int ->
                 getImageFromGallery()
-            })
-            alert.setNegativeButton("Agora não", { dialogInterface: DialogInterface, i: Int ->
-
-            })
-            alert.show()
+            }
         }
-
-
     }
 
 
