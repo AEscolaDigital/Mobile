@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.AttributeSet
 import android.util.Log
+import android.view.Menu
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,6 +21,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var escolher_foto_perfil : TextView
     lateinit var perfil_usuario: ImageView
     var imageBitMap: Bitmap? = null
 
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         perfil_usuario = findViewById(R.id.perfil_usuario)
+        escolher_foto_perfil = findViewById(R.id.escolher_foto_perfil)
 
         bottom_navigation = findViewById(R.id.navegation_bottom)
         //set bottom navigation default item selected
@@ -70,6 +73,26 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+        perfil_usuario.setOnClickListener{
+            val view = View.inflate(this, R.layout.dialog_perfil, null)
+
+            val builder = AlertDialog.Builder(this)
+            builder.setView(view)
+
+            val dialog = builder.create()
+            dialog.show()
+            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+
+            escolher_foto_perfil.setOnClickListener {
+                
+            }
+
+
+        }
+
+
+    // Alert Dialog com a função de pegar foto da galeria
 
         fun dialogImagem() {
             val alert = AlertDialog.Builder(this)
@@ -79,14 +102,11 @@ class MainActivity : AppCompatActivity() {
                 getImageFromGallery()
             })
             alert.setNegativeButton("Agora não", { dialogInterface: DialogInterface, i: Int ->
-                
+
             })
             alert.show()
         }
 
-        perfil_usuario.setOnClickListener {
-            dialogImagem()
-        }
 
     }
 
@@ -96,6 +116,8 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.fragment_container, fragment)
         transaction.commit()
     }
+
+    // Função para pegar foto da galeria
 
     private fun getImageFromGallery() {
         val intent = Intent(Intent.ACTION_PICK)
