@@ -17,24 +17,36 @@
         android:background="@drawable/input_search"
         android:drawableStart="@drawable/search_24"
         android:drawablePadding="10dp"
+        android:focusable="false"
         android:hint="Pesquisar"
         android:inputType="text"
-        android:focusable="false"
         android:paddingStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:cardCornerRadius="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ed_pesquisar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ed_pesquisar"
+        app:layout_constraintTop_toTopOf="@+id/ed_pesquisar">
+
         <ImageView
             android:id="@+id/perfil_usuario"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:background="@drawable/input_search"
-            android:src="@drawable/ic_user_perfil_24"
-            app:layout_constraintBottom_toBottomOf="@+id/ed_pesquisar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/ed_pesquisar"
-            app:layout_constraintTop_toTopOf="@+id/ed_pesquisar"/>
+            android:src="@drawable/ic_user_perfil_24"/>
+<!--            app:layout_constraintBottom_toBottomOf="@+id/ed_pesquisar"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/ed_pesquisar"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/ed_pesquisar" />-->
+
+    </androidx.cardview.widget.CardView>
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navegation_bottom"

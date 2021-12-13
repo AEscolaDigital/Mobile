@@ -71,23 +71,42 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        perfil_usuario.setOnClickListener{
-            val view = View.inflate(this,R.layout.dialog_perfil, null)
+//        perfil_usuario.setOnClickListener{
+//            val view = View.inflate(this,R.layout.dialog_perfil, null)
+//
+//            val builder = AlertDialog.Builder(this)
+//            builder.setView(view)
+//
+//            val dialog = builder.create()
+//            dialog.show()
+//
+//            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+//
+//            escolher_foto_perfil = findViewById(R.id.escolher_foto_perfil)
+//
+//            escolher_foto_perfil.setOnClickListener {
+//                getImageFromGallery()
+//            }
+//        }
 
-            val builder = AlertDialog.Builder(this)
-            builder.setView(view)
 
-            val dialog = builder.create()
-            dialog.show()
-
-            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-
-            escolher_foto_perfil = findViewById(R.id.escolher_foto_perfil)
-
-            escolher_foto_perfil.setOnClickListener {
+        fun dialogImagem() {
+            val alert = AlertDialog.Builder(this)
+            alert.setTitle("Configurações")
+            alert.setMessage(" O que deseja fazer ?")
+            alert.setPositiveButton("Alterar foto", { dialogInterface: DialogInterface, i: Int ->
                 getImageFromGallery()
-            }
+            })
+            alert.setNegativeButton("Sair", { dialogInterface: DialogInterface, i: Int ->
+                setContentView(R.layout.activity_login)
+            })
+            alert.show()
         }
+
+        perfil_usuario.setOnClickListener {
+            dialogImagem()
+        }
+
     }
 
 
