@@ -13,9 +13,7 @@ import android.view.Menu
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import com.example.school.R
-import androidx.fragment.app.Fragment
 import com.example.school.fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -91,14 +89,15 @@ class MainActivity : AppCompatActivity() {
 
 
         fun dialogImagem() {
-            val alert = AlertDialog.Builder(this)
+            val alert = androidx.appcompat.app.AlertDialog.Builder(this)
             alert.setTitle("Configurações")
             alert.setMessage(" O que deseja fazer ?")
             alert.setPositiveButton("Alterar foto", { dialogInterface: DialogInterface, i: Int ->
                 getImageFromGallery()
             })
             alert.setNegativeButton("Sair", { dialogInterface: DialogInterface, i: Int ->
-                setContentView(R.layout.activity_login)
+                finish()
+                System.exit(0)
             })
             alert.show()
         }
@@ -110,7 +109,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun replaceFragment(fragment: Fragment) {
+    private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, fragment)
         transaction.commit()
