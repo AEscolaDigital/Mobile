@@ -69,24 +69,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-//        perfil_usuario.setOnClickListener{
-//            val view = View.inflate(this,R.layout.dialog_perfil, null)
-//
-//            val builder = AlertDialog.Builder(this)
-//            builder.setView(view)
-//
-//            val dialog = builder.create()
-//            dialog.show()
-//
-//            dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
-//
-//            escolher_foto_perfil = findViewById(R.id.escolher_foto_perfil)
-//
-//            escolher_foto_perfil.setOnClickListener {
-//                getImageFromGallery()
-//            }
-//        }
-
 
         fun dialogImagem() {
             val alert = androidx.appcompat.app.AlertDialog.Builder(this)
@@ -105,9 +87,7 @@ class MainActivity : AppCompatActivity() {
         perfil_usuario.setOnClickListener {
             dialogImagem()
         }
-
     }
-
 
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
         val transaction = supportFragmentManager.beginTransaction()

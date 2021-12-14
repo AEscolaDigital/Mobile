@@ -42,8 +42,6 @@ class TaskFragment : Fragment() {
         super.onCreate(savedInstanceState)
          //setContentView(R.layout.activity_teams)
 
-
-
     }
 
     override fun onCreateView(
@@ -97,7 +95,6 @@ class TaskFragment : Fragment() {
 //                Log.i("RESPONSE", response.isSuccessful.toString())
 //                Log.i("RESPONSE", response.headers().toString())
 //                Log.i("RESPONSE", response.raw().toString())
-
             }
 
             override fun onFailure(call: Call<List<TaskList>>, t: Throwable) {
