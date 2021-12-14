@@ -4,6 +4,7 @@ import com.example.school.models.Class
 import com.example.school.models.Discipline
 import com.example.school.models.School
 import com.example.school.models.schoolRegisterResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,9 +27,17 @@ class ApiSchool {
         fun login(@Body body: com.example.school.models.Login): Call<com.example.school.models.Login>
     }
 
-    interface Dashboad {
+    interface Discipline {
         @GET("/disciplines")
-        fun listDisciplines(@Header("Authorization") token: String): Call<List<Discipline>>
+        fun listDisciplines(@Header("Authorization") token: String): Call<List<com.example.school.models.Discipline>>
+
+        @Multipart
+        @POST("/disciplines")
+        fun createDiscipline(@Header("Authorization") token: String,
+                             @Part(value = "name") name: String,
+                             @Part(value = "sigla") sigla: String,
+                             @Part(value = "class_id") clas_id: String,
+                             @Part image: MultipartBody.Part,): Call<com.example.school.models.Discipline>
     }
 
     interface classes {
@@ -58,8 +67,8 @@ class ApiSchool {
             return service.create(Sessions::class.java)
         }
 
-        fun dashboardService(): Dashboad {
-            return service.create(Dashboad::class.java)
+        fun dashboardService(): Discipline {
+            return service.create(Discipline::class.java)
         }
 
         fun taskService(): Task {
