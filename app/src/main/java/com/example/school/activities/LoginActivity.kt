@@ -32,7 +32,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
         // Remover a AppBar
         supportActionBar!!.hide()
 
@@ -50,6 +49,9 @@ class LoginActivity : AppCompatActivity() {
         textViewCreateNewUser.setOnClickListener {
             openCreateNewUser()
         }
+
+        //set a default button select in radio button
+        radio_type_user.check(R.id.radio_aluno_professor)
 
         radio_type_user.setOnCheckedChangeListener { group, checkedId ->
             if (checkedId == R.id.radio_aluno_professor) {
@@ -81,6 +83,8 @@ class LoginActivity : AppCompatActivity() {
             call.enqueue(object : Callback<Login> {
                 override fun onResponse(call: Call<Login>, response: Response<Login>) {
 
+                    Log.i("XPTO LOGIN", response.body()?.role.toString())
+
                     val user = response
                     if (user.code() == 403) {
                         return Toast.makeText(
@@ -96,6 +100,7 @@ class LoginActivity : AppCompatActivity() {
                         editor.putString("JWT", user.body()?.token.toString())
                         editor.putString("EMAIL", user.body()?.user?.email.toString())
                         editor.putString("NAME", user.body()?.user?.name.toString())
+                        editor.putString("ROLE", user.body()?.role.toString())
                         editor.apply()
 
                         openDashboard()
@@ -106,7 +111,12 @@ class LoginActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<Login>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao fazer login!", Toast.LENGTH_LONG)
                         .show()
-                    Log.i("XPTO", error.message.toString())
+                    //Log.i("XPTO", error.message.toString())
+                    //var error = error.message;
+                    Log.i("XPTO login1", error.cause.toString())
+                    Log.i("XPTO login2", error.localizedMessage.toString())
+                    Log.i("XPTO login3", error.suppressed.toString())
+                    Log.i("XPTO login4", error.message.toString())
                 }
             })
 

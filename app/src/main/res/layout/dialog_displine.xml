@@ -65,18 +65,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
-    <Spinner
-        android:id="@+id/spinner_class"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="30dp"
+    <EditText
+        android:id="@+id/discipline_initials"
+        android:layout_width="179dp"
+        android:layout_height="43dp"
+        android:layout_margin="20dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/input_disciplina_border"
-        android:entries="@array/materias"
-        android:spinnerMode="dialog"
+        android:hint="Sigla da disciplina"
+        android:inputType="text"
+        android:paddingStart="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/discipline_title" />
+
+    <Spinner
+        android:id="@+id/spinner_class"
+        android:layout_width="119dp"
+        android:layout_height="44dp"
+        android:paddingStart="10dp"
+
+        android:background="@drawable/input_disciplina_border"
+        android:entries="@array/materias"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/discipline_initials"
+        app:layout_constraintTop_toTopOf="@+id/discipline_initials" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -2,22 +2,14 @@ package com.example.school.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AlertDialogLayout
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.school.R
-import com.example.school.activities.MainActivity
 import com.example.school.activities.ViewTaskActivity
-import com.example.school.api.school.ApiSchool
-import com.example.school.models.Task
 import com.example.school.models.TaskList
 
 class TaskAdapter(var context: Context) :
@@ -55,6 +47,10 @@ class TaskAdapter(var context: Context) :
 
         holder.tv_name_task.text = task.name
         holder.tv_name_task.setOnClickListener {
+            val view: View = View.inflate(context, R.layout.dialog_task, null)
+
+            val builder = AlertDialog.Builder(context)
+            builder.setView(view)
 
             //start a activity viewTaskActivity
             val intent = Intent(context, ViewTaskActivity::class.java)
@@ -63,11 +59,6 @@ class TaskAdapter(var context: Context) :
             //start activity with a fragment viewTaskActivity
             
         }
-/*        holder.ed_description.text = task.date_delivery
-        holder.ed_deliveryDate.text = task.deliveryDate.toString()
-        holder.ed_punctuation.text = task.punctuation.toString()
-        holder.ed_attachment.text = task.attachment*/
-
 
     }
 
@@ -79,12 +70,7 @@ class TaskAdapter(var context: Context) :
 
     //Cria a Holder com os elementos passados
     class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         val tv_name_task = itemView.findViewById<TextView>(R.id.tv_name_task)
- /*       val ed_description = itemView.findViewById<TextView>(R.id.ed_descricao_task)
-        val ed_deliveryDate = itemView.findViewById<TextView>(R.id.ed_data)
-        val ed_punctuation = itemView.findViewById<TextView>(R.id.ed_pontuacao)
-        val ed_attachment = itemView.findViewById<TextView>(R.id.ed_anexo)*/
 
     }
 

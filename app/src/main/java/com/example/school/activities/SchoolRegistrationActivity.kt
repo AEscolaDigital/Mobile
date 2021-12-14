@@ -15,6 +15,7 @@ import com.example.school.models.Cep
 import com.example.school.models.Adress
 import com.example.school.api.school.ApiSchool
 import com.example.school.models.School
+import com.example.school.models.schoolRegisterResponse
 import com.example.school.utlis.MaskFormatUtil
 import com.google.android.material.textfield.TextInputLayout
 import retrofit2.Call
@@ -52,7 +53,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_school_registration)
 
-
         supportActionBar!!.title = "Cadastro de escola"
         supportActionBar!!.setBackgroundDrawable(getDrawable(R.drawable.toolbar_background))
 
@@ -63,7 +63,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         textInputLayoutCNPJ = findViewById(R.id.text_input_layout_cnpj)
         textInputLayoutNumber = findViewById(R.id.text_input_layout_number)
         textInputLayoutEmail = findViewById(R.id.text_input_layout_email)
-
 
         edit_name = findViewById(R.id.text_input_edit_text_name)
         editTextPhone = findViewById(R.id.text_input_edit_text_phone)
@@ -79,7 +78,6 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         editTextComplement = findViewById(R.id.text_input_edit_complement)
         editTextEmail = findViewById(R.id.edit_text_email)
         editTextPassword = findViewById(R.id.edit_text_password)
-
 
         editTextCep.setOnFocusChangeListener { v, hasFocus ->
 
@@ -113,12 +111,10 @@ class SchoolRegistrationActivity : AppCompatActivity() {
                 MaskFormatUtil.FORMAT_CEP
             )
         )
-
     }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
         val inflater = menuInflater
         inflater.inflate(R.menu.menu_create_school, menu)
         return true
@@ -212,19 +208,24 @@ class SchoolRegistrationActivity : AppCompatActivity() {
             val school: School = School(name,phone, companyName, cnpj, school_size, adress,email, password)
 
             val remote = ApiSchool.SchoolEndPoint().getService()
-            val call: Call<School> = remote.register(school)
+            val call: Call<schoolRegisterResponse> = remote.register(school)
 
-            call.enqueue(object : Callback<School> {
-                override fun onResponse(call: Call<School>, response: Response<School>) {
+            call.enqueue(object : Callback<schoolRegisterResponse> {
+                override fun onResponse(call: Call<schoolRegisterResponse>, response: Response<schoolRegisterResponse>) {
                     Toast.makeText(applicationContext, "Escola cadastrada com sucesso!", Toast.LENGTH_LONG).show()
-                    /*Log.i("XPTO", "Escola cadastrada com sucesso")
-                    Log.i("XPTO", response.message().toString())*/
+                    /*Log.i("XPTO", "Escola cadastrada com sucesso")*/
+                    Log.i("XPTO", response.message().toString())
+                    Log.i("XPTO", response.body().toString())
+                    Log.i("XPTO", response.code().toString())
+
+                    //openLoginActivity()
+                    
                 }
 
-                override fun onFailure(call: Call<School>, error: Throwable) {
+                override fun onFailure(call: Call<schoolRegisterResponse>, error: Throwable) {
                     Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
-                    /*Log.i("XPTO", error.message.toString())
-                    Log.i("XPTO", "Erro ao cadastrar escola")*/
+                    Log.i("XPTO", error.message.toString())
+                    Log.i("XPTO", "Erro ao cadastrar escola")
                 }
             })
         }
@@ -234,6 +235,8 @@ class SchoolRegistrationActivity : AppCompatActivity() {
         val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
     }
+
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {

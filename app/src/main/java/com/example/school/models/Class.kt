@@ -7,5 +7,5 @@ class Class (
 
 data class classe (
     var id: String,
-    var name: String
+    var sigla: String
 )
