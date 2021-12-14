@@ -218,13 +218,13 @@ class SchoolRegistrationActivity : AppCompatActivity() {
                     Log.i("XPTO", response.body().toString())
                     Log.i("XPTO", response.code().toString())
 
-                    //openLoginActivity()
+                    openLoginActivity()
                     
                 }
 
                 override fun onFailure(call: Call<schoolRegisterResponse>, error: Throwable) {
-                    Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
-                    Log.i("XPTO", error.message.toString())
+                    //Toast.makeText(applicationContext, "Erro ao cadastrar escola!", Toast.LENGTH_LONG).show()
+                    //Log.i("XPTO", error.message.toString())
                     Log.i("XPTO", "Erro ao cadastrar escola")
                 }
             })
