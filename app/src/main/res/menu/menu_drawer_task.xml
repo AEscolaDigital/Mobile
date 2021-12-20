@@ -3,22 +3,34 @@
 
     <item
         android:id="@+id/id_task_1"
-        android:title="DS1M - FrontEnd"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home"
+
+
         />
 
     <item
         android:id="@+id/id_task_2"
-        android:title="DS1M - BackEnd"
+        android:icon="@drawable/ic_comments_24"
+        android:title="Chat"
         />
 
     <item
         android:id="@+id/id_task_3"
-        android:title="DS1M - MobileEnd"
+        android:icon="@drawable/ic_baseline_library_books_24"
+        android:title="Boletim"
         />
 
     <item
         android:id="@+id/id_task_4"
-        android:title="DS1M - FrontEnd"
+        android:icon="@drawable/ic_baseline_help_24"
+        android:title="Ajuda"
+        />
+
+    <item
+        android:id="@+id/id_task_5"
+        android:icon="@drawable/ic_logout"
+        android:title="Sair"
         />
 
 </menu>

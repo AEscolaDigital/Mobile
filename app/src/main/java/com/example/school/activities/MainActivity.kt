@@ -20,7 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     lateinit var escolher_foto_perfil : TextView
-    lateinit var perfil_usuario : ImageView
+   // lateinit var perfil_usuario : ImageView
     var imageBitMap: Bitmap? = null
 
     lateinit var bottom_navigation: BottomNavigationView
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         // Remover a AppBar
         supportActionBar!!.hide()
 
-        perfil_usuario = findViewById(R.id.perfil_usuario)
+        //perfil_usuario = findViewById(R.id.perfil_usuario)
 
         bottom_navigation = findViewById(R.id.navegation_bottom)
         //set bottom navigation default item selected
@@ -84,9 +84,9 @@ class MainActivity : AppCompatActivity() {
             alert.show()
         }
 
-        perfil_usuario.setOnClickListener {
-            dialogImagem()
-        }
+//        perfil_usuario.setOnClickListener {
+//            dialogImagem()
+//        }
     }
 
     private fun replaceFragment(fragment: androidx.fragment.app.Fragment) {
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
                 BitmapFactory.decodeStream(this.contentResolver?.openInputStream(imageURI!!))
 
             // Setando a imagem no ImageView
-            perfil_usuario.setImageBitmap(imageBitmap)
+            //perfil_usuario.setImageBitmap(imageBitmap)
 
             // Salvando a imagem no ImageView
             imageBitMap = imageBitmap
